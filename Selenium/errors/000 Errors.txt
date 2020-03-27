@@ -1,0 +1,791 @@
+
+======================================
+Действие
+
+private ChromeDriver driver;	
+driver = new ChromeDriver();
+JavascriptExecutor js = (JavascriptExecutor) driver;
+
+js.executeScript(String.format("window.localStorage.clear();"));
+js.executeScript(String.format("window.sessionStorage.clear();"));
+
+========
+Ошибка
+: Failed to read the 'localStorage' property from 'Window': Storage is disabled inside 'data:
+
+
+========
+Решение
+1.
+unchecked block third-party cookies in my Chrome settings
+Блокировать сторонние файлы cookie
+
+chrome://settings/content
+chrome://settings/content/cookies
+
+2. 
+у меня ошибочно запускались два инстанса класса driver
+и JS не видел правильного окна браузера
+
+======================================
+======================================
+Действие
+
+при запуске тестов в лога валится строка 
+см. ниже
+
+
+========
+Ошибка
+
+ошибки нет
+просто засорение лога
+
+[1582110835.249][SEVERE]: Timed out receiving message from renderer: 0.100
+[1582110835.372][SEVERE]: Timed out receiving message from renderer: 0.100
+[1582110835.677][SEVERE]: Timed out receiving message from renderer: 0.100
+[1582110841.324][SEVERE]: Timed out receiving message from renderer: 0.100
+[1582110841.425][SEVERE]: Timed out receiving message from renderer: 0.100
+
+========
+Решение
+
+
+
+
+Попытки решения, без результата
+
+1. 
+        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+        System.setProperty("webdriver.chrome.silentOutput", "true");
+		
+2.
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox"); 
+		options.addArguments("--disable-dev-shm-usage"); 
+		options.addArguments("--aggressive-cache-discard"); 
+		options.addArguments("--disable-cache"); 
+		options.addArguments("--disable-application-cache"); 
+		options.addArguments("--disable-offline-load-stale-cache"); 
+		options.addArguments("--disk-cache-size=0");
+		options.addArguments("--headless"); 
+		options.addArguments("--disable-gpu"); 
+		options.addArguments("--dns-prefetch-disable"); 
+		options.addArguments("--no-proxy-server"); 
+		options.addArguments("--log-level=3");
+		options.addArguments("--silent"); 
+		options.addArguments("--disable-browser-side-navigation"); 
+		options.setPageLoadStrategy(PageLoadStrategy.NORMAL); 
+		options.setProxy(null);
+		
+3.	
+       // Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
+        Logger[] pin = new Logger[]{
+                Logger.getLogger("com.gargoylesoftware.htmlunit"),
+                Logger.getLogger("org.apache.commons.httpclient"),
+                Logger.getLogger("org.openqa.selenium.remote.ProtocolHandshake")
+            };
+
+            for (Logger l : pin) {
+                l.setLevel(Level.OFF);
+                //Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
+            }
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+org.testng.TestNGException: 
+Cannot find class in classpath
+
+========
+Решение
+
+1. Eclipse> Project > Clean
+2. 
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+No goals have been specified for this build. You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>
+
+========
+Решение
+1. mvn clean install -U
+2. in pom.xml  write 
+   <build>
+   
+   <defaultGoal>install</defaultGoal>
+   ....
+   
+   or specify goal, when your run build, like this, fro example
+   
+   clean install -U
+   
+======================================
+======================================
+Действие
+
+после добавления зависимости
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+			<scope>compile</scope>
+		</dependency>
+		
+Она нихрена не скачивается		
+========
+Ошибка
+ Could not resolve dependencies for project com.tests:regrestests:jar:1: Failed to collect dependencies at org.seleniumhq.selenium:selenium-java:
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+ при попытке послать команду - нажать кнопку
+ тест выполняется успешно, но кнопка по сути не нажимается.
+ 
+
+========
+Ошибка
+ 
+ при этом ошибок нет
+
+
+========
+Решение
+
+варианты, предлагаемые в инете
+
+1. изменить
+wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("SAVE_FOOTER")))).click();
+
+на  -  elementToBeClickable
+
+wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("SAVE_FOOTER"))))
+
+
+
+2.
+wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("SAVE_FOOTER")))).sendKeys(Keys.ENTER);;
+
+3. использовать ява скрипт
+
+WebElement SAVE_FOOTER= driver.findElement(By.id("SAVE_FOOTER"));
+JavascriptExecutor executor = (JavascriptExecutor) driver;
+executor.executeScript("arguments[0].click();", SAVE_FOOTER);
+
+
+4.
+WebElement SAVE_FOOTER= driver.findElement(By.xpath("//input[@id='SAVE_FOOTER' and not(@disabled)]"));
+
+
+Оказалось блять, что у меня в системе были ограничены права.
+и нихуя ничего не помогало из вышеперечисленного.
+
+<input title="Сохранить" id="SAVE_HEADER" accesskey="a" class="button primary" onclick="" type="submit" name="button" value="Сохранить" style="display: inline-block;">
+  <input title="Сохранить" value="Сохранить" type="button" class="button disable_button" name="button" disabled="" style="display: none;">
+<input title="Отказаться" id="CANCEL_HEADER" accesskey="l" class="button" onclick="SUGAR.ajaxUI.loadContent('index.php?action=DetailView&amp;module=Leads&amp;record=4367f360-1ab2-3954-0853-5e4e586a1ace'); return false;" type="button" name="button" value="Отказаться">
+
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+Failed to execute 'evaluate' on 'Document': The result is not a node set, and therefore cannot be converted to the desired type.
+
+========
+Решение
+ошибка в синтаксисе написание
+
+было так
+WebElement SAVE_FOOTER= driver.findElement(By.xpath("//input[@id='SAVE_FOOTER' ] and not(@disabled)"));
+
+а надо так (тупо ошибка невнимательности)
+WebElement SAVE_FOOTER= driver.findElement(By.xpath("//input[@id='SAVE_FOOTER' and not(@disabled)]"));
+
+======================================
+======================================
+Действие
+конфигурация allure
+========
+Ошибка
+ Could not initialize class ExtentTestManager
+
+========
+Решение
+
+оказывается забыл приписать аннотации тестовым классам
+
+
+import org.testng.annotations.Test;
+import io.qameta.allure.Epic;
+
+@Listeners({ TestListner.class })
+@Epic("Regression Test")
+public class RegresTest04 {
+
+....
+}
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+В проекте почти все классы неожиданно стали с ошибками
+наследуемые классы не наследуются
+ошибка cannot be resolved to a type
+
+
+
+========
+Решение
+
+
+Переместил класса Родителя в соседний пакет
+и потом вернул его обратно.
+
+проект каким то образом обновился.
+и заработал
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+ warning javax.* types are not being woven because the weaver option '-Xset:weaveJavaxPackages=true' has not been specified
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+======================================
+Действие
+
+========
+Ошибка
+ 
+
+
+========
+Решение
+
+
+======================================
+
+

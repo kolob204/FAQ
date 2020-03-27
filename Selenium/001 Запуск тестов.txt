@@ -1,0 +1,62 @@
+
+
+BAT  file
+===============================================================
+1. Запуск из папки проекта
+
+set Yr=%DateTime:~0,4%
+set Mon=%DateTime:~4,2%
+set Day=%DateTime:~6,2%
+set Hr=%DateTime:~8,2%
+set Min=%DateTime:~10,2%
+set Sec=%DateTime:~12,2%
+
+cls
+cd /D "%~dp0"
+cd regrestests\allure-results
+del  *.* /Q
+cd ..
+
+@Echo off
+SET LOGFILE=..\LOGS\%date:~6,4%-%date:~0,2%-%date:~3,2%_%time:~0,2%.%time:~3,2%.log
+call :Logit >> %LOGFILE%
+exit /b 0
+:Logit
+
+set projectLocation=%cd%
+set log4j="%projectLocation%\src\main\resources\log4j.properties"
+cd %projectLocation%
+
+set classpath=%projectLocation%\target\classes;%projectLocation%\lib\*
+
+java -Dlog4j.configuration=%log4j% org.testng.TestNG %projectLocation%\regres7.xml 
+
+cd..
+timeout 5 && allure\bin\allure serve %projectLocation%\allure-results
+
+start notepad LOGS\%LOGFILE%
+
+
+pause
+
+
+"Легенда" (пояснения):
+
+projectLocation 					- указывается полный путь до папки проекта
+%projectLocation%\target\classes	- указывается полный путь до папки, в которой находятся все файлы .class  тестов
+%projectLocation%\lib\				- указывается полный путь до папки, в которой находятся все библиотеки, необходимые для отработки тестов 
+
+===============================================================
+
+
+
+===============================================================
+
+
+
+
+===============================================================
+
+
+
+===============================================================

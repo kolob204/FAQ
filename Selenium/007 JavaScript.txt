@@ -1,0 +1,16 @@
+Click 
+Нажатие на элемент
+
+WebElement elem = driver.findElement(By.xpath("element_xpath"));
+JavascriptExecutor executor = (JavascriptExecutor)driver;
+executor.executeScript("arguments[0].click();", elem);
+
+
+=======================================================================================
+Получение элемента
+document.getElementById('converted-checklist_dorr_c');
+
+Получение BOOLEAN (существует ли документ)
+
+document.body.contains(document.getElementById('converted-checklist_dorr_c'));
+

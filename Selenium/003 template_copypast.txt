@@ -1,0 +1,219 @@
+
+=================================================================================
+INPUT   INPUT   INPUT   INPUT   INPUT
+
+		//заполняем input
+		 WebElement input_ =  driver.findElement(By.id("id"));
+		 input_.sendKeys("");
+		 
+=================================================================================
+POPUP INPUT      POPUP INPUT      POPUP INPUT      POPUP INPUT      POPUP INPUT      
+
+	//заполняем всплывающий input
+	 WebElement input_id_contact =  driver.findElement(By.id("id_contact"));
+	 input_id_contact.sendKeys("А");
+	 input_id_contact.sendKeys(Keys.ARROW_DOWN);
+	 wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id='EditView_id_contact_results']/div/div[@class='yui-ac-bd']") )) );
+	 input_id_contact.sendKeys(Keys.ENTER);
+	 
+	 
+	 ---------
+	 2-й вариант (непосредственная работа с POPUP)
+	 ---------
+	 //Работа с POPuP окном  
+	 
+        String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+        String subWindowHandler = null;
+        
+        Set<String> handles = driver.getWindowHandles(); // get all window handles
+        Iterator<String> iterator = handles.iterator();
+        while (iterator.hasNext()){
+            subWindowHandler = iterator.next();
+        }
+        driver.switchTo().window(subWindowHandler); // switch to popup window
+
+        // Now you are in the popup window, perform necessary actions here
+        
+        WebElement btn_create_contact = driver.findElement(By.xpath("//div[@id='addformlink']/input[@type='button']"));
+        btn_create_contact.click();
+        
+		driver.close(); //close popup window
+		 
+        driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+	 
+Обработка Всплывающих запросов (Да - НЕТ)  
+ALERT
+
+System.out.println(driver.switchTo().alert().getText());
+
+1 вариант
+
+Alert alert = new WebDriverWait(driver, 20).until(ExpectedConditions.alertIsPresent());
+alert.accept();
+
+2 вариант
+
+Alert alert = driver.switchTo().alert();
+alert.accept();
+
+OR
+driver.switchTo().alert().accept();
+driver.switchTo().alert().dismiss();
+
+	 
+=================================================================================	 
+	 
+SELECT   SELECT   SELECT   SELECT   SELECT   
+
+
+		//заполняем Select
+		 Select sel_ = new Select(driver.findElement(By.id("id")));
+		 sel_.selectByIndex(1);
+
+		 счёт индексов идёт с НУЛЯ
+=================================================================================
+BUTTON    BUTTON    BUTTON    BUTTON    BUTTON    BUTTON    
+
+        WebElement btn_ = driver.findElement(By.id("btn_id_contact"));
+        btn_.click();
+		
+=================================================================================
+
+ДАТА
+
+		WebElement  startdate   	    = driver.findElement(By.id("startdate_c_trigger"));
+		startdate.click();
+		   
+		WebElement  chooseStartDate      = driver.findElement(By.id("startdate_c_trigger_div_t_cell34"));
+		chooseStartDate.click();
+		 
+		WebElement  enddate              = driver.findElement(By.id("enddate_c_trigger"));
+		enddate.click();
+		   
+		WebElement  chooseEndDate        = driver.findElement(By.id("enddate_c_trigger_div_t_cell34"));
+		chooseEndDate.click();
+
+=================================================================================
+СОХРАНИТЬ КАРТОЧКУ
+
+WebElement SAVE_FOOTER  = driver.findElement(By.id("SAVE_FOOTER")); // Кнопка Сохранить	 
+SAVE_FOOTER.click(); // Сохранить карточку	    
+
+=================================================================================
+ОЖИДАНИЕ Исчезновения элемента
+
+		WebElement loading  = driver.findElement(By.id("loadingPage")); 
+		wait.until(ExpectedConditions.invisibilityOf(loading)); 
+		 
+		OR 
+		 
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("//span[contains(.,'Найдено совпадение')]")));
+
+Ожидание загрузки страницы
+	 
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(.,'Найдено совпадение')]")));
+=================================================================================
+Ввод и проверка на совпадение:
+		
+		
+		Boolean error_flag;
+
+
+	    error_flag=true;
+		
+		while (error_flag) {
+		
+		WebElement phoneNumberElement  = driver.findElement(By.id("name")); 
+		phoneNumberElement.sendKeys(Elements.getRandom(10));
+		
+		SAVE_FOOTER = driver.findElement(By.id("SAVE_FOOTER")); // Кнопка Сохранить	    
+		SAVE_FOOTER.click(); // Сохранить карточку
+		 
+		        	
+		try
+		{
+		    WebElement error_message  = driver.findElement(By.xpath("//div[@class='required validation-message']"));
+		    error_flag=error_message.isDisplayed();
+		} 
+		catch(NoSuchElementException e)
+		{
+		   System.out.println("No Errors with Phone. OK!"); 
+			   error_flag=false;
+			} 
+		} // while
+
+
+-----------
+паспорт
+
+			while (error_flag) {
+			
+			
+		     input_passnum_c.sendKeys(getRandom(10));
+			
+				
+		     input_birthdate.click();
+			 Thread.sleep(1000);
+			 WebElement loading_pasport_check  = driver.findElement(By.xpath("//span[@id='passnum_c_dup_detector_info']/img")); 
+			 //ждём проверки на совпадение
+			 wait.until(ExpectedConditions.invisibilityOf(loading_pasport_check)); 
+			 
+			        	
+			try
+			{
+			    WebElement error_message  = driver.findElement(By.xpath("//span[@id='passnum_c_dup_detector_info' and contains(text(),'Найдено совпадение')]"));
+			    error_flag=error_message.isDisplayed();
+			} 
+			catch(NoSuchElementException e)
+			    {
+			       System.out.println("No Errors with Pasport. OK!"); 
+				   error_flag=false;
+				} 
+			} // while
+
+=================================================================================
+Очистить КЭШ
+
+1  встроенным методом driver
+  driver.manage().deleteAllCookies();
+
+2 способ (выполнить явы скрипт)
+
+  JavascriptExecutor js = (JavascriptExecutor) driver;
+
+  js.executeScript(String.format("window.localStorage.clear();"  ));
+  js.executeScript(String.format("window.sessionStorage.clear();"));
+
+3 способ - через настройки Chrome
+
+driver.get('chrome://settings/clearBrowserData');
+driver.find_element_by_id("clearBrowsingDataConfirm").click(); // кнопка удалить данные
+
+//ждём окончания процесса очистки
+ wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("clearBrowsingDataConfirm")))
+
+4. Обновляем страницу
+https://books.google.ru/books?id=ZL24BwAAQBAJ&pg=PA60&lpg=PA60&dq=testng+send+keys+ctrl+f5&source=bl&ots=LDNSJQuBf-&sig=ACfU3U1-8fDjwFVf4vCKYdICdLyjxQARmA&hl=ru&sa=X&ved=2ahUKEwjXiYTjk93nAhVK-yoKHasGAx4Q6AEwBHoECAoQAQ
+
+   a)
+ // этот вариант у меня не сработал. но видел его в рекомендациях
+   driver.findElement(By.tagName("body")).sendKeys(Keys.chord(Keys.CONTROL, Keys.F5 ));;
+   
+   b)
+		  driver.navigate().refresh();
+		  driver.switchTo().alert().accept();         
+		  
+		  
+		  error_flag=false;
+		  while  (!error_flag) {
+			  error_flag=js.executeScript("return document.readyState").equals("complete");
+		  }
+		  
+   
+   c) что то тоже не заработало (проверить потом)
+     Actions action = new Actions(driver); 
+     action.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
+   
+=================================================================================
+
+		

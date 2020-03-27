@@ -1,0 +1,98 @@
+=====================================
+Задержки времени    WAiT
+
+//жёсткое ожидание
+Thread.sleep(2000); //2 сек
+
+//ожидание появления элемента
+wait = (WebDriverWait) new WebDriverWait(driver, 30,2000).withMessage("Element was not found");
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("moduleTab_Calendar")));
+
+
+// pageLoadTimeout  На момент написания статьи работает только для Firefox и InternetExplorer
+driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+
+
+//В данном примере, при вызове функции driver.findElement(), если элемент не присутствует в DOM страницы, 
+//на протяжении 10 секунд будет происходить опрос браузера на наличие элемента. 
+//Это очень помогает при работе с AJAX компонентами.
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+https://xpinjection.com/articles/waits-and-timeouts-in-webdriver/
+
+
+=====================================
+
+
+ //Установка позиции мыши в заданные координаты
+ https://stackoverflow.com/questions/12974488/selenium-webdriver-move-mouse-to-point
+ 
+ 1. Robot
+ но его считают плохим решением, так как он работает через координаты экрана напрямую, и если окно тестируемого браузера не свёрнуто или перед ним что то ещё есть, и мешает нажать
+ кнопку, то он не сработает
+ 
+Point coordinates = menu_cards.getLocation();
+Robot robot = new Robot();
+robot.mouseMove(coordinates.getX(),coordinates.getY());
+
+2. РАБОЧИЙ ВАРИАНТ
+org.openqa.selenium.interactions.Actions.class 
+		
+Actions builder = new Actions(driver);
+builder.moveToElement(menu_cards).build().perform();  // мув в позицию
+builder.click(menu_cards).build().perform(); // клик элемента
+ 
+ 
+ 3.
+ 
+WebElement el = driver.findElementById("elementId");
+Coordinates c = ((RemoteWebElement)el).getCoordinates();
+driver.getMouse().mouseMove(c);
+		
+		
+=====================================
+
+Подсчёт пройденного времени
+ 
+long start=System.currentTimeMillis(); 
+long end=System.currentTimeMillis();
+System.out.println(end-start);
+
+=====================================
+stop test on error
+Остановить тест при возникновении ошибки в блоке try catch
+
+try {
+   //code
+} 
+catch(Exception e){
+   e.printStackTrace();
+   System.exit(1)
+}
+
+=====================================
+
+СКРОЛЛИНГ
+
+СТРАНИЦЫ
+//В Самый низ
+js.executeScript("window.scrollTo(0,Math.max(document.documentElement.scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");
+
+//На самый верх
+js.executeScript("scroll(0, 0)");
+
+проще
+js.executeScript("scroll(0, 250)"); //down
+js.executeScript("scroll(450, 0)"); //UP
+
+Внутри DIV Элемента
+js.executeScript("document.getElementById('converted-checklist_dorr_c').scrollTop += 180");
+
+=====================================
+
+
+
+
+
+
+		

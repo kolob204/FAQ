@@ -1,0 +1,52 @@
+
+после каждого действия с элементов нужно его заново искать.
+иначе возникает ошибка
+stale element reference: element is not attached to the page document
+
+то есть например
+
+>>>       WebElement menu_cards     		= driver.findElement(By.id("moduleTab_conc_Conclusion"));
+          menu_cards.click();
+        
+    	 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("conclusion_status_c_advanced"))); // ждём появления уникального элемента для этой страницы
+    	 WebElement h2_Element = driver.findElement(By.xpath("//h2")); 
+    	 Assert.assertEquals(h2_Element.getText(),"Поиск Карточки согласования");
+     
+>>>      menu_cards     		= driver.findElement(By.id("moduleTab_conc_Conclusion"));   // заново инициализируем поиск элэмента 
+         Actions builder = new Actions(driver);        
+         builder.moveToElement(menu_cards).build().perform();
+
+		 
+===============================================================================
+
+ testng element not interactable
+ 
+ 
+ ===============================================================================
+ 
+ Нужно написать ожидание, когда что то щёлкаешь на странице, она временно задумвается, и прежде чем ппродолжать тест, надо подождать этой загрузки
+ 
+ Не сработали варианты:
+ wait.until(ExpectedConditions.elementToBeClickable((By.id("sic_code")))); 
+  wait.until(ExpectedConditions.visibilityOf(fill_INN));
+  
+  driver.manage (). timeouts (). pageLoadTimeout (40, TimeUnit.SECONDS);
+  
+ 
+ Рабочие варианты
+ Thread.sleep(4000); // ждать жёсткое время....но не вариант
+ 
+// Вот такой вариант. когда нажимается кнопка. срабатывает скрипт, и на странице появляетя надпись
+ //типа ждите. вот мы ждём когда она исчезнет
+          WebElement loading  = driver.findElement(By.id("loadingPage")); 
+         wait.until(ExpectedConditions.invisibilityOf(loading)); 
+ 
+ 
+ Не пробовал ещё
+ WebDriverWait(firefoxDriver, pageLoadTimeout).until( webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+ 
+ ===============================================================================
+ 
+ 
+ 
+ 

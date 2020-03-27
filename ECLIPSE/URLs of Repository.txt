@@ -1,0 +1,42 @@
+1.
+*.eclipse.org/*
+access links for example
+(marketplace.eclipse.org
+download.eclipse.org/eclipse/updates
+download.eclipse.org/technology/m2e/releases
+eclipse.org/m2e/)
+
+2.
+*.apache.org/*
+access link for example
+( https://repo.maven.apache.org/maven2/ 
+i.e.)
+
+
+3.
+*.beust.com/eclipse/*
+
+4.
+http://dl.bintray.com/testng-team/testng-eclipse-release/
+
+5.
+*.selenium.dev/*
+*.seleniumhq.org/*
+
+
+==============================================================================================
+Ещё доверенные ссылки
+
+https://git-scm.com/download/
+https://git-scm.com/download/win
+https://github.com/git-for-windows/git/releases/download/v2.25.1.windows.1/Git-2.25.1-64-bit.exe
+https://github.com/git-for-windows/git/releases/download/v2.25.1.windows.1/PortableGit-2.25.1-64-bit.7z.exe
+
+
+
+
+
+
+
+
+==============================================================================================

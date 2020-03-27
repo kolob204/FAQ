@@ -1,0 +1,46 @@
+Опции браузера
+
+1 вариант
+
+DesiredCapabilities capabilities = new DesiredCapabilities();
+ChromeOptions options = new ChromeOptions();
+
+a)
+capabilities.setCapability("enableVNC", true);
+Configuration.browserCapabilities = capabilities;
+
+b)
+options.addArguments(“start-maximized”);
+capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
+=====
+
+2 вариант (есть несколько готовых опций, через Configuration)
+Configuration.browser = "chrome";
+Configuration.browserSize = "1920x1080";
+Configurations.startmaximized=true;
+Configuration.proxyEnabled = false;
+
+
+============================================================================================
+
+Работа с элементами
+
+Сравнение текста
+$(By.id("inn_c")).getText()
+
+Текст из INPUT поля
+$(By.id("inn_c")).getAttribute("value");
+============================================================================================
+SELECT
+$(By.id("sic_code")).selectOption(1);
+$(By.id("resolve_c")).selectOptionContainingText("Одобрено");
+============================================================================================
+Get current Url
+
+currentUrl=WebDriverRunner.currentFrameUrl();
+
+============================================================================================
+
+
+============================================================================================

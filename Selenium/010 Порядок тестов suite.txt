@@ -1,0 +1,31 @@
+
+
+
+regres5.xml 
+(включает 
+тест  3  из списка (RegresTest03)
+тест  5  из списка (RegresTest05)
+)
+
+
+regres6.xml 
+(включает 
+тест  5  из списка (RegresTest05)
+тест  6  из списка (RegresTest06)
+)
+
+regres7.xml 
+(включает 
+тест  3  из списка (RegresTest03)
+тест  5  из списка (RegresTest05)
+тест  6  из списка (RegresTest06)
+тест  7  из списка (RegresTest07)
+)
+
+
+====================
+Как итог, набор всех тестов:
+
+2? 
+4?
+regres7.xml 

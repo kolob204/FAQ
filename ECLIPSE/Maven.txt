@@ -1,0 +1,88 @@
+You can install the lastest M2Eclipse release (1.8.3) 
+by using the following update site from within Eclipse:
+
+http://download.eclipse.org/technology/m2e/releases
+
+================================================
+settings.xml   EXAMPLE
+
+Сначала надо указать в Эклипсе путь до файла конфигурации
+Maven - > User SETTINGS
+
+После того как файл заполнен
+нажать там же UPDATE SETTINGS
+
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+ 
+ 
+ 
+  <servers/>
+  <mirrors/>
+  
+	<proxies>
+  
+      <!-- proxy
+     | Specification for one proxy, to be used in connecting to the network.
+     | -->
+    <proxy>
+        <id>optional</id>
+        <active>true</active>
+        <protocol>https</protocol> 
+		<username>frolov_vi</username>
+        <password>Werthvfy1</password>
+        <host>ws-wcg</host>
+        <port>80</port> 
+		<nonProxyHosts>*tkbbank.ru|*tkbbank.com|*.transcapital.ru|*.transcapital.com|10*|*gmail.com</nonProxyHosts>
+    </proxy>   
+	 
+ 
+	
+	</proxies>
+
+
+
+  <profiles/>
+  <activeProfiles/>
+</settings>
+
+================================================
+================================================
+Шифрование пароля, чтобы хранился в закрытом виде
+
+$ mvn -emp mypassword
+{rsB56BJcqoEHZqEZ0R1VR4TIspmODx1Ln8/PVvsgaGw=}
+
+Maven prints out an encrypted copy of the password to standard out.
+ Copy this encrypted password and paste it into a ~/.m2/settings-security.xml file.
+
+<settingsSecurity>
+  <master>{rsB56BJcqoEHZqEZ0R1VR4TIspmODx1Ln8/PVvsgaGw=}</master>
+</settingsSecurity>
+
+
+
+After you have created a master password, you can then encrypt passwords for use in your Maven Settings.
+To encrypt a password with the master password,
+run mvn -ep or mvn --encrypt-password.
+Assume that you have a repository manager and you need to send a username of "deployment" and a password of "qualityFIRST". To encrypt this particular password, you would run the following command:
+
+$ mvn -ep yourPassword
+{uMrbEOEf/VQHnc0W2X49Qab75j9LSTwiM3mg2LCrOzI=}
+At this point, copy the encrypted password printed from the output of mvn -ep and paste it into your Maven Settings.
+
+<settings>
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>deployment</username>
+<password>{uMrbEOEf/VQHnc0W2X49Qab75j9LSTwiM3mg2LCrOzI=}</password>
+    </server>
+  </servers>
+  ...
+</settings>
+================================================
+================================================

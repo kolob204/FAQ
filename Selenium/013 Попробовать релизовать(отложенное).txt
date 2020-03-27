@@ -1,0 +1,14 @@
+Selenide
+
+==========================================================
+свои условия поиска
+https://selenide.gitbooks.io/user-guide/content/ru/selenide-api/condition.html
+
+
+Condition clickable = and("can be clicked", visible, enabled);
+
+$$(".button").findBy(clickable).click()
+
+
+==========================================================
+

@@ -1,0 +1,59 @@
+1 способ 
+
+создаём базовый класс
+где объявляем WEBDriver
+наследуемся всеми тестами от него
+
+public class BaseTest {
+
+	public WebDriver driver;
+	public JavascriptExecutor js;
+	
+	public WebDriverWait wait;
+	public WebDriverWait wait10;
+	public WebDriverWait waitForLoad;
+	
+	@BeforeClass
+	public void setup() {
+		System.setProperty("webdriver.chrome.driver", "../chromedriver/chromedriver_80.exe");
+		ChromeOptions options = new ChromeOptions();
+			options.addArguments("--no-sandbox"); 
+			
+		this.driver = new ChromeDriver(options);
+	
+		js = (JavascriptExecutor) driver;
+		
+		wait = (WebDriverWait) new WebDriverWait(driver, 20,2000)
+	                .withMessage("Element was not found");
+		wait10 = (WebDriverWait) new WebDriverWait(driver, 20,2000)
+	                .withMessage("Element was not found");
+    }
+	
+	
+	@AfterClass
+	public void teardown() {
+       driver.close();
+	   driver.quit();
+	}
+	
+	//  Наследуем базовый класс
+@Listeners({ TestListner.class })
+@Epic("Regression Test")
+public class RegresTest  extends BaseTest{
+...
+
+    @Test
+    public void runTest()  {
+	
+	
+    }
+}	
+======================================================
+https://automated-testing.info/t/resolved-using-webdriver-after-calling-quit/5311/8
+
+2 способ  (ThreadLocal)
+(разобраться)
+
+private static final ThreadLocal<WebDriver> DRIVER_CONTAINER = new ThreadLocal<>();
+
+

@@ -1,0 +1,61 @@
+========================================================================
+log4j:WARN No appenders could be found for logger (com.test.Log).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+2020-03-05 18:08:22.238:INFO::main: Logging initialized @5251ms to org.eclipse.jetty.util.log.StdErrLog
+ 
+============== 
+Решения
+  
+ ========
+http://logging.apache.org/log4j/1.2/manual.html
+
+https://stackoverflow.com/questions/1140358/how-to-initialize-log4j-properly
+http://www.avajava.com/tutorials/lessons/how-do-i-configure-log4j-with-properties.html?page=3
+
+Log4j by default looks for a file called log4j.properties or log4j.xml on the classpath
+
+1. put the log4j.properties into src/main/resources
+
+2.  In BaseTest class , in BeforeSuite method put this
+
+    BasicConfigurator.configure();
+	OR
+    System.setProperty("log4j.configurationFile", "Log4j.properties");
+
+	
+	
+2b. PropertyConfigurator.configure("mylog4j.properties");
+	 
+	 
+3. use verbose = "10"
+  
+
+4. This is the most common issue that am=lmost all the user faces while running the batch file for TestNG. But it can be resolved by updating the system. I get the suggestion from kaspersky customer support and they are really providing the exact solution for any kind of issue related to the system.
+
+5. try to add -Dlog4j.configuration=file:/C:/projects/workspace/testing/mylog4j.properties
+ on your job command.
+ 
+ like this
+ java -Dlog4j.configuration=file:"C:\Users\Desktop\log4j.properties"  -jar MYjar-with-dependencies.jar
+ 
+-Dlog4j.configuration=file:"C:\Users\Public\Production\regrestests\src\main\resources\log4j.properties"
+
+ or try
+ 
+ set root.dir=C:\SomeDir\WebAppPath
+ set log=%root.dir%\cfg\log4j2.properties
+ set main=org.testng.TestNG
+ 
+ java -cp %cp% -Dallure.cfg=%allure.prop% -Dcommon.cfg=%common.prop% -Dlog4j.configurationFile=%log% %main%  %suite% -d %report.dir%
+ 
+ 
+ or like this
+ JAVA_OPTS="-Dlog4j.configuration=file://$CATALINA_HOME/conf/log4j.properties"
+ ...(дораотать)
+	 
+	 
+  
+========================================================================
+ 
+ 

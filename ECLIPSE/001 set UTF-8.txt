@@ -1,0 +1,8 @@
+Чтобы избежать возможнх проблем в дальнейшем, с ГИТ 
+и прочим, лучше сразу установить кодировку в UTF-8
+
+для этого
+
+Window -> Preferences -> General ->  Workspace
+Select "Other" radio button -> Select UTF-8 from the drop down
+

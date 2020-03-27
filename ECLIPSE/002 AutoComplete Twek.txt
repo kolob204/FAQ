@@ -1,0 +1,26 @@
+Windows - Pref - Java - Editor - content assist
+Auto activation triggers for java
+
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ._
+
+
+===================================================
+
+
+для POM.XML
+1. install
+m2e  plugin
+http://download.eclipse.org/technology/m2e/releases
+
+
+2. 
+Go to: Preferences -> Maven Check the checkboxes 'Download repository index updates on startup' and 'Update Maven projects on startup'
+
+Go to: Preferences -> Maven -> User Settings Check if in the value in field 'User Settings' point to an vallid 'settings.xml' Press 'update settings' 
+(In my case the maven settings.xml file is not at the default Eclipse location)
+
+
+
+
+
+===================================================

@@ -1,0 +1,24 @@
+Robot rb =new Robot();
+
+rb.keyPress(KeyEvent.VK_D);
+rb.keyRelease(KeyEvent.VK_D);
+
+
+rb.keyPress(KeyEvent.VK_SHIFT);
+rb.keyPress(KeyEvent.VK_SEMICOLON);
+
+rb.keyRelease(KeyEvent.VK_SHIFT);
+
+rb.keyPress(KeyEvent.VK_BACK_SLASH);
+
+rb.keyPress(KeyEvent.VK_P);
+rb.keyRelease(KeyEvent.VK_P);
+
+rb.keyPress(KeyEvent.VK_I);
+rb.keyRelease(KeyEvent.VK_I);
+
+rb.keyPress(KeyEvent.VK_C);
+rb.keyRelease(KeyEvent.VK_C);
+
+rb.keyPress(KeyEvent.VK_ENTER);
+rb.keyRelease(KeyEvent.VK_ENTER)

@@ -1,0 +1,30 @@
+Варианты организации логирования тестов:
+
+1. Избыточный вариант
+   когда на каждо действие используется try - catch с обработкой исключения и вывода соответствующего, понятного
+   для любого тестера (ручного или автоматизатора), - в какой именно момент упал тест.
+   
+2. Логирование только средствами фрйморков, где может отображаться только информация о том,
+   какой именно тэг не был найден в процессе. Для разработчика или программиста, разобраться в 
+   таком логе не сложно.
+   
+================================================================
+Чтобы отключить в ЛОГЕ такой вот вывода
+
+[SEVERE]: Timed out receiving message from renderer: 0.100
+[SEVERE]: Timed out receiving message from renderer: 0.100
+[SEVERE]: Timed out receiving message from renderer: 0.100
+[SEVERE]: Timed out receiving message from renderer: 0.100
+
+Можно прописать следующее
+
+System.setProperty("webdriver.chrome.silentOutput", "true"); //THIS will surpress all logs expect INFO
+
+================================================================
+
+
+Для информации
+
+java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF); // this could be used to stop INFO logging in chrome driver 
+
+================================================================

@@ -1,0 +1,19 @@
+https://superuser.com/questions/163957/is-eclipse-installation-portable
+
+
+Yes. Eclipse is portable. However you need to specify the workspace folder and the Java VM on the command line. This prevents eclipse from using the broken VM that comes with windows and allows it to access the workspace even if the drive letter has changed.
+
+eclipse.exe -clean -vm %JAVA_HOME%/bin/javaw.exe -data %WORKSPACE%
+
+
+FYI: The Java VM is also portable so you can put both Java and Eclipse on the same thumb drive.
+
+NOTE: Eclipse project settings may not be portable. This depends on how you set up your .classpath file. Try to use relative paths whenever possible
+
+
+==============================
+ссылки
+https://portableapps.com/node/28647
+
+Eclipse Portable, Java EE Edition:
+https://sourceforge.net/projects/eclipseportable/files/Eclipse%20Portable%20%28Java%20EE%29/EclipsePortable_3.7.1_Java_EE_Edition.paf.exe/download

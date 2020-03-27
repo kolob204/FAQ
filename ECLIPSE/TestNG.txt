@@ -1,0 +1,8 @@
+INSTALL
+
+http://beust.com/eclipse
+https://dl.bintray.com/testng-team/testng-eclipse-release/7.0.0/
+
+=========================================
+
+

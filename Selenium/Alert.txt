@@ -1,0 +1,26 @@
+Задача
+нажать кнопку на всплывающем окне предупреждения
+
+
+
+
+Решение
+
+System.out.println(driver.switchTo().alert().getText());
+
+1 вариант
+
+Alert alert = new WebDriverWait(driver, 20).until(ExpectedConditions.alertIsPresent());
+alert.accept();
+
+2 вариант
+
+Alert alert = driver.switchTo().alert();
+alert.accept();
+
+OR
+
+driver.switchTo().alert().dismiss();
+
+
+driver.switchTo().alert().accept();
