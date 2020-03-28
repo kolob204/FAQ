@@ -1,8 +1,14 @@
-Windows - Pref - Java - Editor - content assist
-Auto activation triggers for java
+CODE Assist
 
+Go to Window > Preferences > Java > Editor > Content Assist.
+In the column
+"Auto activation triggers for Java"
+
+enter this:
+
+.qwertyuioplkjhgfdsazxcvbnm_QWERTYUIOPLKJHGFDSAZXCVBNM
+OR
 abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ._
-
 
 ===================================================
 
@@ -20,7 +26,23 @@ Go to: Preferences -> Maven -> User Settings Check if in the value in field 'Use
 (In my case the maven settings.xml file is not at the default Eclipse location)
 
 
-
-
-
 ===================================================
+
+для MAIN метода используется не psvm
+а MAIN
+
+печатаем  main - жмём Enter и получаем:
+
+public static void main(String[] args) {
+		
+	}
+
+===================================================	
+Для автоматического форматирования кода лесенкой:
+
+Параметры ->
+Java ->
+Editor ->
+Save action ->>>> Формат исходного кода (форматировать все строки)
+
+

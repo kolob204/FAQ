@@ -1,0 +1,28 @@
+install scope 
+
+1.
+PS> Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust.
+Changing the execution policy might expose you to the security risks described
+in the about_Execution_Policies help topic at http://go.microsoft.com/fwlink/
+?LinkID=135170. Do you want to change the execution policy?
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+PS> iex (New-Object Net.WebClient).DownloadString('https://get.scoop.sh')
+
+=---=
+
+2.
+PS> $wc = new-object net.webclient
+PS> $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
+PS> iex $wc.downloadstring('https://get.scoop.sh')
+
+==================================================================
+
+go to 
+JAVA PROJECT FOLDER\allure-results
+
+run in cmd
+allure serve allure-results
+

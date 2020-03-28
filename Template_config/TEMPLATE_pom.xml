@@ -1,0 +1,156 @@
+BASE ( 1 variant)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.template</groupId>
+    <artifactId>messenger</artifactId>  	
+	<version>1.0</version>
+	
+    <packaging>war / jar</packaging>
+	
+    <name>NameOfApplication</name>
+    <description>About Application....</description>   
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+  
+
+		 <build>
+			<finalName>NameOfByteCodeFile</finalName>
+			
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+				</plugin>
+			</plugins>		
+		</build>
+ 
+</project>
+
+======================================================================================
+BASE ( 2 variant)
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>8</java.version>
+    </properties>
+
+
+     <build>
+
+        <finalName>NameOfByteCodeFile</finalName>
+		
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                <source>${java.version}</source>
+                <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>		
+    </build>
+ 
+</project>
+======================================================================================
+Plugins
+    <properties>
+        <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>        
+        <version.war.plugin>3.2.3</version.war.plugin>
+    </properties>
+	
+			  <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version.war.plugin}</version>
+                <configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+                    <webXml>web\WEB-INF\web.xml</webXml>
+					<!-- другие возможные пути для разных IDE и разных проектов
+					     src\main\webapp\WEB-INF\web.xml						 
+						 WebContent\WEB-INF\web.xml
+						 ${project.basedir}\web\WEB-INF\web.xml
+						 -->
+                    <warSourceDirectory>WebContent</warSourceDirectory>
+                </configuration>
+            </plugin>
+			
+
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${version.wildfly.maven.plugin}</version>
+                <configuration>
+                    <hostname>localhost</hostname>
+                    <port>9990</port>
+                    <username>postgres</username>
+                    <password>postgres</password>
+                </configuration>
+            </plugin>
+			
+			
+			
+
+======================================================================================
+About Dependences
+
+    <properties>
+		<version.jboss.bom>8.2.2.Final</version.jboss.bom>
+		<version.glassfish.jersey>2.29.1</version.glassfish.jersey>
+    </properties>
+	
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+ 
+		<!-- Для тестов -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+		
+		
+<dependencyManagement>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>jboss-javaee-7.0-with-tools</artifactId>
+                <version>${version.jboss.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>jboss-javaee-7.0-with-hibernate</artifactId>
+                <version>${version.jboss.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>  <!-- After which your main <dependencies> section may omit the versions. -->
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${version.glassfish.jersey}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+		
+</dependencyManagement>
+======================================================================================

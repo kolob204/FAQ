@@ -1,0 +1,17 @@
+
+Problems with eclipse
+======================================================
+Problem
+installing new software is incredibly slow
+
+===========
+Solution
+Go to Windows → Preferences
+Type in search - "available software sites"
+Try unchecking the several sites which you do not want to look for updates.
+
+2. Go to HELP - Install Additional SoftwareDisabling
+Disabling check box
+"Contact all update sites..."
+
+======================================================

@@ -1,0 +1,14 @@
+
+run Maven project with GOAL
+clean versions:use-latest-releases
+
+
+
+		 <build>
+			.......
+			<defaultGoal>clean versions:use-latest-releases</defaultGoal>
+			....... 
+			 
+		</build>
+======================================================
+

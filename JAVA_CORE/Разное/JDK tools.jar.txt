@@ -1,0 +1,6 @@
+https://docs.oracle.com/javase/9/migrate/toc.htm#JSMIG-GUID-C86F7403-7D7C-456F-8873-18C7F1BEDE2F
+
+1. It got removed in Java 9
+2. tools.jar was deprecated after JDK 6
+
+

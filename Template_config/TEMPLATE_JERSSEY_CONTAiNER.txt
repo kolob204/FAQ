@@ -1,0 +1,371 @@
+=================================================
+1.
+
+CREATE   JaxRsActivator   CLASS
+
+import javax.ws.rs.ApplicationPath; 
+import javax.ws.rs.core.Application;
+
+
+@ApplicationPath("/api")
+public class JaxRsActivator extends Application {
+         
+}
+
+PS
+no need WEB.XML
+if doesn't need View
+=================================================
+2.
+a) Create CLASS
+
+import org.glassfish.jersey.server.ResourceConfig;  // it's ok
+
+public class MyApplication extends ResourceConfig {
+    public MyApplication() {
+        register(new MyApplicationBinder());
+        packages(true, "com.viktorfrolov.rest");
+    }
+
+}
+
+b) Create CLASS MyApplicationBinder
+import com.viktorfrolov.rest.MessageMappingRest;
+import com.viktorfrolov.rest.MessageRest;
+import com.viktorfrolov.rest.UserRest;
+import org.glassfish.jersey.internal.inject.AbstractBinder;
+
+public class MyApplicationBinder  extends AbstractBinder {
+    @Override
+    protected void configure() {
+	
+ // DEFINE all rest calsses,that uses in your Application
+ 
+        bind(MessageMappingRest.class).to(MessageMappingRest.class);
+        bind(MessageRest.class).to(MessageRest.class);
+        bind(UserRest.class).to(UserRest.class);
+    }
+}
+
+c) configure  web.xml
+
+<servlet>
+  <servlet-name>MyApplication</servlet-name>
+  <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+  <init-param>
+    <param-name>javax.ws.rs.Application</param-name>
+    <param-value>com.mypackage.MyApplication</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+  <servlet-name>MyApplication</servlet-name>
+  <url-pattern>/*</url-pattern>
+</servlet-mapping>
+
+
+=================================================
+3  freemarker
+https://www.baeldung.com/jersey-mvc
+and BOOK   jersey-documentation-2.1-user-guide.pdf
+
+a) POM.XML add dependency 
+
+<dependency>
+    <groupId>org.glassfish.jersey.ext</groupId>
+    <artifactId>jersey-mvc-freemarker</artifactId>
+    <version>2.27</version>
+</dependency>
+
+We're also going to need the Grizzly servlet container.
+
+Again we can find the latest version in Maven Central:
+<dependency>
+    <groupId>org.glassfish.jersey.containers</groupId>
+    <artifactId>jersey-container-grizzly2-servlet</artifactId>
+    <version>2.27</version>
+</dependency>
+
+
+b) create class
+import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.server.mvc.freemarker.FreemarkerMvcFeature;
+
+public class ViewApplicationConfig extends ResourceConfig {
+    public ViewApplicationConfig() {
+        packages("com.baeldung.jersey.server");
+        property(FreemarkerMvcFeature.TEMPLATE_BASE_PATH, "templates/freemarker");
+        register(FreemarkerMvcFeature.class);;
+    }
+}
+
+c) create directoty
+main/resources/templates/freemarker
+
+d) Resource class
+@Path("/fruit")
+public class FruitResource {
+    @GET
+    public Viewable get() {
+        return new Viewable("/index.ftl", "Fruit Index Page");
+    }
+}
+Go to the browser URL – http://localhost:8080/fruit
+
+e)
+f)
+g)
+h)
+=================================================
+4  
+POM.XML add dependency 
+web.xml add configuration
+
+a) Create Class IndexModel 
+
+import org.glassfish.jersey.server.mvc.Viewable;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.net.URI;
+import java.util.HashMap;
+
+@Path("/")
+@Produces(MediaType.TEXT_HTML)
+public class IndexModel {
+
+   @GET
+   public Response root() {
+       return Response.seeOther(URI.create("/index.html")).build();
+   }
+
+   @GET
+   @Path("index")
+   public Viewable index(@Context HttpServletRequest request) {
+       HashMap<String, String> model = new HashMap<String, String>();
+       model.put("foo","World");
+       return new Viewable("/index.html", model);
+   }
+}
+
+
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+5  Without WEb.XML
+
+a)
+
+<dependencies>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+    </dependencies>
+	
+	
+b) create class 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
+
+@ApplicationPath("/api")
+public class ApplicationConfig extends Application {
+
+    @Override
+    public Map<String, Object> getProperties() {
+        Map<String, Object> properties = new HashMap<String, Object>();
+        properties.put("jersey.config.server.provider.packages", "com.memorynotfound.rs");
+        return properties;
+    }
+}
+
+c) create class
+package com.memorynotfound.rs;
+
+public class Course {
+
+    private Integer id;
+    private String name;
+
+    public Course(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+d) create resources
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.List;
+
+@Path("/courses")
+public class CourseRestService {
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Course> fetchAll() {
+        List<Course> courses = new ArrayList<Course>();
+        courses.add(new Course(1, "Configure Jersey with annotations"));
+        courses.add(new Course(2, "Configure Jersey without web.xml"));
+        return courses;
+    }
+
+}
+
+e)
+f)
+g)
+h)
+=================================================
+6
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+7
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+8
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+9
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+10
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+11
+
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+12
+
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+13
+
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+14
+
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================
+15
+
+
+a)
+b)
+c)
+d)
+e)
+f)
+g)
+h)
+=================================================

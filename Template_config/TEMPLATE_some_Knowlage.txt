@@ -1,0 +1,167 @@
+redirection
+
+
+public class Details extends HttpServlet {
+
+private Connection con;
+
+public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  
+  response.setContentType("text/html");
+  //return writer
+  PrintWriter out = res.getWriter();   
+
+response.sendRedirect("http://localhost:8080/redirect.html") 
+
+
+===  or
+
+
+String path= "/index.html";
+RequestDispatcher dispatcher =servletContext().getRequestDispatcher(path);
+dispatcher.forward(request,response);
+
+=== or
+
+ServletContext sc = getServletContext();
+sc.getRequestDispatcher("/redirect.html").forward(request, response);
+
+
+=== more variants
+
+RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
+dispatcher.include(request, response);
+
+}
+
+
+}
+
+=========================================================
+=========================================================
+=========================================================
+MySQL Type      Java Type
+----------      ---------
+CHAR            String
+VARCHAR         String
+LONGVARCHAR     String
+NUMERIC         java.math.BigDecimal
+DECIMAL         java.math.BigDecimal
+BIT             boolean
+TINYINT         byte
+SMALLINT        short
+INTEGER         int
+BIGINT          long
+REAL            float
+FLOAT           double
+DOUBLE          double
+BINARY          byte[]
+VARBINARY       byte[]
+LONGVARBINARY   byte[]
+DATE            java.sql.Date
+TIME            java.sql.Time
+TIMESTAMP       java.sql.Tiimestamp
+
+=========================================================
+=========================================================
+=========================================================
+HBQ
+АНАЛОГ на языке MySQL
+       Select * From Distance WHERE from_city=from_city, to_city=to_city
+
+Проверено, работает	   
+   	    CriteriaBuilder criteriaB = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Distance> criteriaQ = criteriaB.createQuery(Distance.class);
+        Root<Distance> element = criteriaQ.from(Distance.class);
+       
+        Predicate[]predicates = new Predicate[2];
+        predicates[0]= criteriaB.equal(element.get("from_city"),from_city);
+        predicates[1]= criteriaB.equal(element.get("to_city"), to_city);
+        criteriaQ.select(element).where(predicates);
+
+		Distance x=null;
+        x = entityManager.createQuery(criteriaQ).getSingleResult()
+        x.getDistance();		
+===
+       //criteriaQ.select(element).where(criteriaB.equal(element.get("from_city"),from_city));
+
+===
+The JPQL
+
+
+АНАЛОГ на языке MySQL
+Select * From distance WHERE from_city='Самара' and to_city='Москва'
+Select * From distance WHERE from_city in('Самара','Москва') and to_city in('Самара','Москва')
+
+Проверено работает
+        TypedQuery<Distance> q = entityManager.createQuery("select u from Distance u where u.from_city in (:from_city,:to_city) and u.to_city in (:to_city,:from_city)", Distance.class)
+                .setParameter("from_city",from_city)
+                .setParameter("to_city",to_city);
+
+        List<Distance> list = null;
+        list = q.getResultList();
+		
+        if (list == null || list.isEmpty())
+            {return "<html><head><meta charset=\"utf-8\"> </head> <body>" +
+                    "Данных нет, попробуйте использовать метод CrowFlight </body> </html>";}
+
+        else { return "<html><head><meta charset=\"utf-8\"> </head> <body>"+
+                "Расстояние от "+from_city+" до "+to_city+" : "+String.valueOf(q.getSingleResult().getDistance())+
+                "</body>"+"</html>";}
+=====
+примеры JPQL
+	EntityManager em = getEntityManager();
+    List<?> movies = em.createQuery("SELECT movie from Movie movie where movie.language = ?1")
+      .setParameter(1, "English")
+      .getResultList();
+	  
+
+=========================================================
+=========================================================
+=========================================================
+
+POST
+
+<form action="/home/post" method="post">
+    <p>Name: <input type="text" name="name"></p>
+</form>
+
+  
+@Path("/home")  
+private class MyClassTestPost {  
+  
+@POST
+@Path("/post")
+@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+@Produces(MediaType.TEXT_HTML)
+public String postMethod(@FormParam("name") String name) {
+  return "<h2>Hello, " + name + "</h2>";
+}
+
+
+=========================================================
+=========================================================
+=========================================================
+@GET
+@Path("/test")
+public Response test(@Context HttpServletRequest request) {
+    String url = request.getRequestURL().toString();
+    String query = request.getQueryString();
+    String reqString = url + "?" + query;
+    return Response.status(Status.OK).entity(reqString).build();
+}
+=========================================================
+=========================================================
+=========================================================
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ 
+ What does the 'standalone' directive mean in XML?
+
+ means that the XML processor must use the DTD for validation only. 
+In that case it will not be used for:
+default values for attributes
+entity declarations
+normalization
+=========================================================
+=========================================================
+=========================================================

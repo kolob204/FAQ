@@ -1,0 +1,37 @@
+для работы с XLS файлами достаточно добавить такого импорта
+
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>3.14</version>
+    <scope>provide</scope>
+</dependency>
+
+
+Для работы с XLSX файлами (2007+) необходимо ЕЩЁ  добавить зависимость
+
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>3.14</version>
+</dependency>
+
+При этом, версия 3.14 проверена.
+И обе версии зависимостей должны быть одинаковы в одном проекте, иначе начнутся ошибки несоответствий классов.
+
+======================================
+пример кода
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class MyClass {
+
+	public method () {
+    	XSSFWorkbook wb = new XSSFWorkbook(new FileInputStream(new File("../Book.xlsx"))); // ну уровень выше
+    	String s = wb.getSheetAt(0).getRow(0).getCell(0).getStringCellValue();
+		//getRow(0) номер строки в листе
+		//getCell(0) номер столбца в листе
+	}
+
+}
+

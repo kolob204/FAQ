@@ -1,0 +1,32 @@
+===================================================
+Ошибка
+=======
+ошибка при упаковки war
+проект под WildFly
+
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
+[INFO] 1 error
+
+Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project XXX: Compilation failure
+[ERROR] No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
+
+===========
+Решение
+===========
+В свойствах системы изменил переменную
+JAVA_HOME
+C:\Program Files\Java\jdk-13.0.2
+
+так как недавно установил новую версию, а переменную не сменил
+
+И в настройках Ecplipce тоже изменил
+Windows - Preference - Java - Installed JREs
+добавил новый путь
+
+Execution Enviroments
+JavaSE-13 
+поставил галочку
+
+===================================================

@@ -1,0 +1,20 @@
+опция языка среды
+-Duser.language=en
+
+
+===========================================
+
+-XX:+UseStringDeduplication
+Enables the String Deduplication feature within G1
+-XX:+AggressiveOpts
+Enables the use of aggressive performance optimization features
+-Xss2m
+is used to limit how much memory a stack consumes
+-Xmn512m
+the size of the heap for the young generation
+-Xms1024m
+this is initial Java Heap size
+-Xmx3024m
+this is maximum Java Heap size
+
+===========================================

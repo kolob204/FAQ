@@ -1,0 +1,21 @@
+=================================================================
+Failed to create the part's controls
+.IllegalArgumentException: Unmatched braces in the pattern
+
+
+1. Некоторые плагины вызывают данную проблему
+
+2. Go to menu File->Switch Workspace->Other, and then select the same workspace you were working with. Eclipse will restart and you should not get the error.
+   (мне не помогло, кому то помогло)
+
+3. Use eclipse -clean  / UPDATE  project
+
+4. Check the General -> Editors -> File Associations  for correct default editors
+
+5. Delete old versions of JDK 
+   возможно можно обойтись без удаления, и как то правильно сконфигурировать среду, но у меня не получилось
+   поэтому помогло только удаление
+   
+Restart Eclipse after all   , or after each step.
+
+=================================================================

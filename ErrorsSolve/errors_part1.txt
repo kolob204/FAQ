@@ -1,0 +1,2109 @@
+on START  JBoss (Wildfly)
+
+
+E:\developer\wildfly\wildfly-18.0.1.Final\bin\standalone.bat
+E:\developer\jdk\bin\java.exe -Dfile.encoding=windows-1251 -classpath "E:\programs\JetBrains\IntelliJ IDEA 2018.1.4\lib\idea_rt.jar" com.intellij.rt.execution.CommandLineWrapper C:\Users\user\AppData\Local\Temp\idea_classpath com.intellij.javaee.oss.process.JavaeeProcess 55076 com.intellij.javaee.oss.jboss.agent.JBoss71Agent
+[2019-11-22 03:02:15,391] Artifact restapp001:war: Waiting for server connection to start artifact deployment...
+Detected server admin port: 9990
+Detected server http port: 8080
+Calling "E:\developer\wildfly\wildfly-18.0.1.Final\bin\standalone.conf.bat"
+Setting JAVA property to "E:\developer\jdk\bin\java"
+===============================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: "E:\developer\wildfly\wildfly-18.0.1.Final"
+
+  JAVA: "E:\developer\jdk\bin\java"
+
+  JAVA_OPTS: "-Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman  --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED"
+
+===============================================================================
+
+15:02:16,240 INFO  [org.jboss.modules] (main) JBoss Modules version 1.9.1.Final
+15:02:16,917 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.11.Final
+15:02:16,931 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+15:02:17,089 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 18.0.1.Final (WildFly Core 10.0.3.Final) starting
+15:02:18,646 INFO  [org.wildfly.security] (ServerService Thread Pool -- 27) ELY00001: WildFly Elytron version 1.10.4.Final
+15:02:19,907 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+15:02:19,950 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 32) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+15:02:20,193 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+15:02:20,273 INFO  [org.xnio] (MSC service thread 1-2) XNIO version 3.7.3.Final
+15:02:20,285 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.7.3.Final
+15:02:20,320 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 64) WFLYNAM0001: Activating Naming Subsystem
+15:02:20,338 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 63) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+15:02:20,415 INFO  [org.wildfly.extension.microprofile.config.smallrye._private] (ServerService Thread Pool -- 60) WFLYCONF0001: Activating WildFly MicroProfile Config Subsystem
+15:02:20,430 INFO  [org.jboss.as.naming] (MSC service thread 1-1) WFLYNAM0003: Starting Naming Service
+15:02:20,436 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 72) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+15:02:20,499 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 70) WFLYSEC0002: Activating Security Subsystem
+15:02:20,510 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 51) WFLYCLINF0001: Activating Infinispan subsystem.
+15:02:20,505 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 43) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+15:02:20,506 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 53) WFLYRS0016: RESTEasy version 3.9.1.Final
+15:02:20,516 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 74) WFLYWS0002: Activating WebServices Extension
+15:02:20,529 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 58) WFLYJSF0007: Activated the following JSF Implementations: [main]
+15:02:20,537 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-3) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+15:02:20,562 INFO  [org.wildfly.extension.microprofile.metrics.smallrye] (ServerService Thread Pool -- 62) WFLYMETRICS0001: Activating Eclipse MicroProfile Metrics Subsystem
+15:02:20,552 ERROR [org.jboss.as.controller.management-operation] (ServerService Thread Pool -- 43) WFLYCTL0013: Operation ("add") failed - address: ([
+    ("subsystem" => "datasources"),
+    ("jdbc-driver" => "postgres")
+]) - failure description: "WFLYJCA0041: Failed to load module for driver [org.postgres]"
+15:02:20,574 INFO  [org.wildfly.extension.microprofile.health.smallrye] (ServerService Thread Pool -- 61) WFLYHEALTH0001: Activating Eclipse MicroProfile Health Subsystem
+15:02:20,611 INFO  [org.jboss.as.security] (MSC service thread 1-1) WFLYSEC0001: Current PicketBox version=5.0.3.Final
+15:02:20,675 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0003: Undertow 2.0.27.Final starting
+15:02:20,686 INFO  [org.jboss.as.connector] (MSC service thread 1-6) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.17.Final)
+15:02:20,940 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = h2
+15:02:21,289 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 73) WFLYUT0014: Creating file handler for path 'E:\developer\wildfly\wildfly-18.0.1.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+15:02:51,317 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 52) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+15:02:51,335 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+15:02:51,334 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+15:02:51,363 INFO  [org.jboss.remoting] (MSC service thread 1-4) JBoss Remoting version 5.0.15.Final
+15:02:51,375 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0012: Started server default-server.
+15:02:51,381 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0018: Host default-host starting
+15:02:51,400 INFO  [org.jboss.as.patching] (MSC service thread 1-8) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+15:02:51,419 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-3) WFLYDM0111: Keystore E:\developer\wildfly\wildfly-18.0.1.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+15:02:51,462 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+15:02:51,539 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "postgresql-42.2.8.jar" (runtime-name: "postgresql-42.2.8.jar")
+15:02:51,556 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "mysql-connector-java-5.1.48.jar" (runtime-name: "mysql-connector-java-5.1.48.jar")
+15:02:51,553 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "postgres" (runtime-name: "postgres")
+15:02:51,540 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-7) WFLYDS0013: Started FileSystemDeploymentService for directory E:\developer\wildfly\wildfly-18.0.1.Final\standalone\deployments
+15:02:51,745 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+15:02:51,935 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 5.3.0.Final (Apache CXF 3.3.3) 
+15:02:52,929 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0493: EJB subsystem suspension complete
+15:02:53,333 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+15:02:53,749 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.2)
+15:02:53,802 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+15:02:53,803 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.fabric.jdbc.FabricMySQLDriver (version 5.1)
+15:02:53,826 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = mysql-connector-java-5.1.48.jar_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1
+15:02:53,827 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = mysql-connector-java-5.1.48.jar
+15:02:53,838 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = mysql-connector-java-5.1.48.jar_com.mysql.jdbc.Driver_5_1
+15:02:53,839 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = postgres
+15:02:53,865 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.2)
+15:02:53,874 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = postgresql-42.2.8.jar
+15:02:54,233 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-5) ISPN000128: Infinispan version: Infinispan 'Infinity Minus ONE +2' 9.4.16.Final
+15:02:54,247 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0001: Bound data source [java:jboss/datasources/MessengerDC]
+15:02:54,605 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 78) WFLYCLINF0002: Started client-mappings cache from ejb container
+15:02:54,821 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "postgres" (runtime-name : "postgres")
+15:02:54,822 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "postgresql-42.2.8.jar" (runtime-name : "postgresql-42.2.8.jar")
+15:02:54,822 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0010: Deployed "mysql-connector-java-5.1.48.jar" (runtime-name : "mysql-connector-java-5.1.48.jar")
+15:02:54,918 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+15:02:54,922 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+15:02:54,922 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+15:02:54,923 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 18.0.1.Final (WildFly Core 10.0.3.Final) started in 39230ms - Started 509 of 737 services (379 services are lazy, passive or on-demand)
+нояб. 22, 2019 3:02:59 PM org.jboss.threads.Version <clinit>
+INFO: JBoss Threads version 2.3.3.Final
+нояб. 22, 2019 3:03:00 PM org.jboss.remoting3.EndpointImpl <clinit>
+INFO: JBoss Remoting version 5.0.15.Final
+нояб. 22, 2019 3:03:00 PM org.xnio.Xnio <clinit>
+INFO: XNIO version 3.7.3.Final
+нояб. 22, 2019 3:03:00 PM org.xnio.nio.NioXnio <clinit>
+INFO: XNIO NIO Implementation Version 3.7.3.Final
+нояб. 22, 2019 3:03:03 PM org.wildfly.security.Version <clinit>
+INFO: ELY00001: WildFly Elytron version 1.10.4.Final
+Error running admin process:
+Message: java.lang.ExceptionInInitializerError Stack trace: com.intellij.javaee.process.common.JavaeeProcessUtilException: java.lang.ExceptionInInitializerError at com.intellij.javaee.process.common.MethodInvocator.invoke(MethodInvocator.java:47) at com.intellij.javaee.oss.process.JavaeeProcess.processRequest(JavaeeProcess.java:112) at com.intellij.javaee.oss.process.JavaeeProcess.run(JavaeeProcess.java:52) at com.intellij.javaee.oss.process.JavaeeProcess.main(JavaeeProcess.java:31) at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.base/java.lang.reflect.Method.invoke(Method.java:567) at com.intellij.rt.execution.CommandLineWrapper.main(CommandLineWrapper.java:67) Caused by: java.lang.ExceptionInInitializerError at org.wildfly.security.auth.client.AuthenticationContext.lambda$static$0(AuthenticationContext.java:54) at org.wildfly.common.context.ContextManager.getPrivileged(ContextManager.java:286) at org.wildfly.security.auth.client.AuthenticationContext.captureCurrent(AuthenticationContext.java:86) at org.jboss.as.protocol.ProtocolConnectionUtils.connect(ProtocolConnectionUtils.java:159) at org.jboss.as.protocol.ProtocolConnectionUtils.connectSync(ProtocolConnectionUtils.java:120) at org.jboss.as.protocol.ProtocolConnectionManager$EstablishingConnection.connect(ProtocolConnectionManager.java:259) at org.jboss.as.protocol.ProtocolConnectionManager.connect(ProtocolConnectionManager.java:70) at org.jboss.as.protocol.mgmt.ManagementClientChannelStrategy$Establishing.getChannel(ManagementClientChannelStrategy.java:167) at org.jboss.as.controller.client.impl.RemotingModelControllerClient.getOrCreateChannel(RemotingModelControllerClient.java:132) at org.jboss.as.controller.client.impl.RemotingModelControllerClient$2.getChannel(RemotingModelControllerClient.java:85) at org.jboss.as.protocol.mgmt.ManagementChannelHandler.executeRequest(ManagementChannelHandler.java:135) at org.jboss.as.protocol.mgmt.ManagementChannelHandler.executeRequest(ManagementChannelHandler.java:110) at org.jboss.as.controller.client.impl.AbstractModelControllerClient.executeRequest(AbstractModelControllerClient.java:263) at org.jboss.as.controller.client.impl.AbstractModelControllerClient.execute(AbstractModelControllerClient.java:168) at org.jboss.as.controller.client.impl.AbstractModelControllerClient.executeForResult(AbstractModelControllerClient.java:147) at org.jboss.as.controller.client.impl.AbstractModelControllerClient.execute(AbstractModelControllerClient.java:75) at com.intellij.javaee.oss.jboss.agent.JBoss7Agent$Operation.doExecute(JBoss7Agent.java:272) at com.intellij.javaee.oss.jboss.agent.JBoss7Agent$Operation.executeOrFail(JBoss7Agent.java:253) at com.intellij.javaee.oss.jboss.agent.JBoss7Agent$Operation.execute(JBoss7Agent.java:242) at com.intellij.javaee.oss.jboss.agent.JBoss71Agent$1.validate(JBoss71Agent.java:21) at com.intellij.javaee.oss.jboss.agent.JBoss7Agent.doConnect(JBoss7Agent.java:56) at com.intellij.javaee.oss.agent.SimpleAgentBase$1.doJob(SimpleAgentBase.java:17) at com.intellij.javaee.oss.agent.SimpleAgentBase$1.doJob(SimpleAgentBase.java:13) at com.intellij.javaee.oss.agent.SimpleAgentJob.perform(SimpleAgentJob.java:12) at com.intellij.javaee.oss.agent.SimpleAgentBase.connect(SimpleAgentBase.java:25) at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.base/java.lang.reflect.Method.invoke(Method.java:567) at com.intellij.javaee.process.common.MethodInvocator.invoke(MethodInvocator.java:41) ... 8 more Caused by: org.wildfly.security.auth.client.InvalidAuthenticationConfigurationException: java.lang.NoClassDefFoundError: org/ietf/jgss/GSSException at org.wildfly.security.auth.client.DefaultAuthenticationContextProvider.lambda$static$0(DefaultAuthenticationContextProvider.java:40) at java.base/java.security.AccessController.doPrivileged(AccessController.java:312) at org.wildfly.security.auth.client.DefaultAuthenticationContextProvider.<clinit>(DefaultAuthenticationContextProvider.java:36) ... 38 more Caused by: java.lang.NoClassDefFoundError: org/ietf/jgss/GSSException at org.wildfly.security.auth.client.DefaultAuthenticationContextProvider.lambda$static$0(DefaultAuthenticationContextProvider.java:38) ... 40 more Caused by: java.lang.ClassNotFoundException: org.ietf.jgss.GSSException at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:436) at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:588) at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ... 41 more 
+
+
+
+
+
+
+
+
+=========================================================
+
+on packaging WAR file
+
+
+
+
+=========================================================
+
+Попытка настроить auto  deploy
+
+
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy (default-deploy) on project jaxrs: Deployment failed: repository element was not specified in the POM inside distributionManagement element or in -DaltDeploymentRepository=id::layout::url parameter -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+Process finished with exit code 1
+
+
+
+
+РЕШЕНИЕ
+
+пока нет
+
+
+===============================================================
+
+
+Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: com.klevytska.rest_service.registrator.UserRegistrator from [Module \"deployment.messenger\" from Service Module Loader]
+
+
+
+
+
+deploy messenger.war --runtime-name=messenger.war
+
+
+
+================================================================
+
+
+
+[INFO] --- maven-war-plugin:2.5:war (default-war) @ restapp ---
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.thoughtworks.xstream.converters.collections.TreeMapConverter (file:/C:/Users/user/.m2/repository/com/thoughtworks/xstream/xstream/1.4.4/xstream-1.4.4.jar) to field java.util.TreeMap.comparator
+WARNING: Please consider reporting this to the maintainers of com.thoughtworks.xstream.converters.collections.TreeMapConverter
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[WARNING] Error injecting: org.codehaus.plexus.archiver.jar.JarArchiver
+java.lang.ExceptionInInitializerError
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at com.google.inject.internal.DefaultConstructionProxyFactory$1.newInstance(DefaultConstructionProxyFactory.java:86)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:105)
+	at com.google.inject.internal.ConstructorInjector.access$000(ConstructorInjector.java:32)
+	at com.google.inject.internal.ConstructorInjector$1.call(ConstructorInjector.java:89)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:115)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:133)
+	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:87)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:267)
+	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1016)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1103)
+	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1012)
+	at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1051)
+	at org.eclipse.sisu.space.AbstractDeferredClass.get(AbstractDeferredClass.java:48)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(InternalFactoryToInitializableAdapter.java:53)
+	at com.google.inject.internal.ProviderInternalFactory$1.call(ProviderInternalFactory.java:65)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:115)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:133)
+	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:63)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.get(InternalFactoryToInitializableAdapter.java:45)
+	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1016)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1103)
+	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1012)
+	at org.eclipse.sisu.inject.Guice4$1.get(Guice4.java:162)
+	at org.eclipse.sisu.inject.LazyBeanEntry.getValue(LazyBeanEntry.java:81)
+	at org.eclipse.sisu.plexus.LazyPlexusBean.getValue(LazyPlexusBean.java:51)
+	at org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get(PlexusRequirements.java:250)
+	at org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(ProvidedPropertyBinding.java:48)
+	at org.eclipse.sisu.bean.BeanInjector.injectMembers(BeanInjector.java:52)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:140)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:114)
+	at com.google.inject.internal.ConstructorInjector.access$000(ConstructorInjector.java:32)
+	at com.google.inject.internal.ConstructorInjector$1.call(ConstructorInjector.java:89)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:115)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:133)
+	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:87)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:267)
+	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1016)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1103)
+	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1012)
+	at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1051)
+	at org.eclipse.sisu.space.AbstractDeferredClass.get(AbstractDeferredClass.java:48)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(InternalFactoryToInitializableAdapter.java:53)
+	at com.google.inject.internal.ProviderInternalFactory$1.call(ProviderInternalFactory.java:65)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:115)
+	at org.eclipse.sisu.bean.BeanScheduler$Activator.onProvision(BeanScheduler.java:176)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:126)
+	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:63)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.get(InternalFactoryToInitializableAdapter.java:45)
+	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1016)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1092)
+	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1012)
+	at org.eclipse.sisu.inject.Guice4$1.get(Guice4.java:162)
+	at org.eclipse.sisu.inject.LazyBeanEntry.getValue(LazyBeanEntry.java:81)
+	at org.eclipse.sisu.plexus.LazyPlexusBean.getValue(LazyPlexusBean.java:51)
+	at org.codehaus.plexus.DefaultPlexusContainer.lookup(DefaultPlexusContainer.java:263)
+	at org.codehaus.plexus.DefaultPlexusContainer.lookup(DefaultPlexusContainer.java:255)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getConfiguredMojo(DefaultMavenPluginManager.java:517)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:121)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.intellij.rt.execution.application.AppMainV2.main(AppMainV2.java:131)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at org.codehaus.plexus.archiver.zip.AbstractZipArchiver.<clinit>(AbstractZipArchiver.java:113)
+	... 96 more
+[WARNING] Error injecting: org.apache.maven.plugin.war.WarMojo
+java.lang.ExceptionInInitializerError
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at com.google.inject.internal.DefaultConstructionProxyFactory$1.newInstance(DefaultConstructionProxyFactory.java:86)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:105)
+	at com.google.inject.internal.ConstructorInjector.access$000(ConstructorInjector.java:32)
+	at com.google.inject.internal.ConstructorInjector$1.call(ConstructorInjector.java:89)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:115)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:133)
+	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:87)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:267)
+	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1016)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1103)
+	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1012)
+	at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1051)
+	at org.eclipse.sisu.space.AbstractDeferredClass.get(AbstractDeferredClass.java:48)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(InternalFactoryToInitializableAdapter.java:53)
+	at com.google.inject.internal.ProviderInternalFactory$1.call(ProviderInternalFactory.java:65)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:115)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:133)
+	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:63)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.get(InternalFactoryToInitializableAdapter.java:45)
+	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1016)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1103)
+	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1012)
+	at org.eclipse.sisu.inject.Guice4$1.get(Guice4.java:162)
+	at org.eclipse.sisu.inject.LazyBeanEntry.getValue(LazyBeanEntry.java:81)
+	at org.eclipse.sisu.plexus.LazyPlexusBean.getValue(LazyPlexusBean.java:51)
+	at org.eclipse.sisu.plexus.PlexusRequirements$RequirementProvider.get(PlexusRequirements.java:250)
+	at org.eclipse.sisu.plexus.ProvidedPropertyBinding.injectProperty(ProvidedPropertyBinding.java:48)
+	at org.eclipse.sisu.bean.BeanInjector.injectMembers(BeanInjector.java:52)
+	at com.google.inject.internal.MembersInjectorImpl.injectMembers(MembersInjectorImpl.java:140)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:114)
+	at com.google.inject.internal.ConstructorInjector.access$000(ConstructorInjector.java:32)
+	at com.google.inject.internal.ConstructorInjector$1.call(ConstructorInjector.java:89)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:115)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:133)
+	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:87)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:267)
+	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1016)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1103)
+	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1012)
+	at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1051)
+	at org.eclipse.sisu.space.AbstractDeferredClass.get(AbstractDeferredClass.java:48)
+	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(InternalFactoryToInitializableAdapter.java:53)
+	at com.google.inject.internal.ProviderInternalFactory$1.call(ProviderInternalFactory.java:65)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:115)
+	at org.eclipse.sisu.bean.BeanScheduler$Activator.onProvision(BeanScheduler.java:176)
+	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:126)
+	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68)
+	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:63)
+	at com.google.inject.internal.InternalFactoryToInitializableAdapter.get(InternalFactoryToInitializableAdapter.java:45)
+	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1016)
+	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1092)
+	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1012)
+	at org.eclipse.sisu.inject.Guice4$1.get(Guice4.java:162)
+	at org.eclipse.sisu.inject.LazyBeanEntry.getValue(LazyBeanEntry.java:81)
+	at org.eclipse.sisu.plexus.LazyPlexusBean.getValue(LazyPlexusBean.java:51)
+	at org.codehaus.plexus.DefaultPlexusContainer.lookup(DefaultPlexusContainer.java:263)
+	at org.codehaus.plexus.DefaultPlexusContainer.lookup(DefaultPlexusContainer.java:255)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getConfiguredMojo(DefaultMavenPluginManager.java:517)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:121)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+	at org.codehaus.classworlds.Launcher.main(Launcher.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.intellij.rt.execution.application.AppMainV2.main(AppMainV2.java:131)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at org.codehaus.plexus.archiver.zip.AbstractZipArchiver.<clinit>(AbstractZipArchiver.java:113)
+	... 96 more
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 12.128 s
+[INFO] Finished at: 2019-11-23T12:35:55+04:00
+[INFO] Final Memory: 24M/60M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-war-plugin:2.5:war (default-war) on project restapp: Execution default-war of goal org.apache.maven.plugins:maven-war-plugin:2.5:war failed: An API incompatibility was encountered while executing org.apache.maven.plugins:maven-war-plugin:2.5:war: java.lang.ExceptionInInitializerError: null
+[ERROR] -----------------------------------------------------
+[ERROR] realm =    plugin>org.apache.maven.plugins:maven-war-plugin:2.5
+[ERROR] strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
+[ERROR] urls[0] = file:/C:/Users/user/.m2/repository/org/apache/maven/plugins/maven-war-plugin/2.5/maven-war-plugin-2.5.jar
+[ERROR] urls[1] = file:/C:/Users/user/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar
+[ERROR] urls[2] = file:/C:/Users/user/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+[ERROR] urls[3] = file:/C:/Users/user/.m2/repository/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.jar
+[ERROR] urls[4] = file:/C:/Users/user/.m2/repository/org/slf4j/jcl-over-slf4j/1.5.6/jcl-over-slf4j-1.5.6.jar
+[ERROR] urls[5] = file:/C:/Users/user/.m2/repository/org/apache/maven/reporting/maven-reporting-api/2.2.1/maven-reporting-api-2.2.1.jar
+[ERROR] urls[6] = file:/C:/Users/user/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.1/doxia-sink-api-1.1.jar
+[ERROR] urls[7] = file:/C:/Users/user/.m2/repository/org/apache/maven/doxia/doxia-logging-api/1.1/doxia-logging-api-1.1.jar
+[ERROR] urls[8] = file:/C:/Users/user/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar
+[ERROR] urls[9] = file:/C:/Users/user/.m2/repository/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar
+[ERROR] urls[10] = file:/C:/Users/user/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+[ERROR] urls[11] = file:/C:/Users/user/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
+[ERROR] urls[12] = file:/C:/Users/user/.m2/repository/org/apache/maven/maven-archiver/2.5/maven-archiver-2.5.jar
+[ERROR] urls[13] = file:/C:/Users/user/.m2/repository/org/codehaus/plexus/plexus-io/2.1.3/plexus-io-2.1.3.jar
+[ERROR] urls[14] = file:/C:/Users/user/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar
+[ERROR] urls[15] = file:/C:/Users/user/.m2/repository/org/codehaus/plexus/plexus-archiver/2.6.3/plexus-archiver-2.6.3.jar
+[ERROR] urls[16] = file:/C:/Users/user/.m2/repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar
+[ERROR] urls[17] = file:/C:/Users/user/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.19/plexus-interpolation-1.19.jar
+[ERROR] urls[18] = file:/C:/Users/user/.m2/repository/com/thoughtworks/xstream/xstream/1.4.4/xstream-1.4.4.jar
+[ERROR] urls[19] = file:/C:/Users/user/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar
+[ERROR] urls[20] = file:/C:/Users/user/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar
+[ERROR] urls[21] = file:/C:/Users/user/.m2/repository/org/codehaus/plexus/plexus-utils/3.0.18/plexus-utils-3.0.18.jar
+[ERROR] urls[22] = file:/C:/Users/user/.m2/repository/org/apache/maven/shared/maven-filtering/1.2/maven-filtering-1.2.jar
+[ERROR] urls[23] = file:/C:/Users/user/.m2/repository/org/apache/maven/shared/maven-shared-utils/0.3/maven-shared-utils-0.3.jar
+[ERROR] urls[24] = file:/C:/Users/user/.m2/repository/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar
+[ERROR] urls[25] = file:/C:/Users/user/.m2/repository/org/sonatype/plexus/plexus-build-api/0.0.4/plexus-build-api-0.0.4.jar
+[ERROR] urls[26] = file:/C:/Users/user/.m2/repository/org/apache/maven/shared/maven-mapping/1.0/maven-mapping-1.0.jar
+[ERROR] Number of foreign imports: 1
+[ERROR] import: Entry[import  from realm ClassRealm[maven.api, parent: null]]
+[ERROR] 
+[ERROR] -----------------------------------------------------: Index 1 out of bounds for length 1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginContainerException
+
+Process finished with exit code 1
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ЧТО СОВЕТОВАЛИ в ИНТЕРНЕТЕ
+
+Удалить репозиторий 
+C:/Users/user/.m2/repository
+
+или выборочные папки, типа 
+C:\Users\user\.m2\repository\org
+C:\Users\user\.m2\repository\org\codehaus\plexus
+
+
+удалял, не помогло
+
+
+Ещё советовали внести такие изменения в POM.XML файл
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>3.1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven.shared</groupId>
+            <artifactId>maven-filtering</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+    </dependencies>
+</plugin>
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+КАК Я РЕШИЛ ЭТУ ПРОБЛЕМУ
+
+
+    <properties>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
+        <version.jboss.bom>8.2.1.Final</version.jboss.bom>
+        <version.compiler.plugin>3.1</version.compiler.plugin>
+        <version.surefire.plugin>2.16</version.surefire.plugin>
+        <version.war.plugin>2.5</version.war.plugin>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+    </properties>
+
+
+заменил на 
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
+        <version.jboss.bom>8.2.2.Final</version.jboss.bom>
+        <version.compiler.plugin>3.1</version.compiler.plugin>
+        <version.surefire.plugin>3.0.0-M4</version.surefire.plugin>
+        <version.war.plugin>3.2.3</version.war.plugin>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+
+
+
+
+
+
+
+
+
+
+
+===============================================================
+
+Настрока   restapp.iml
+
+
+Было  в моей генерации
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+  
+  
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping>
+          <factory-entry name="primary" />
+        </datasource-mapping>
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
+    
+    
+  </component>
+  
+  
+</module>
+
+
+
+
+ЗАМЕНИЛ на файл   автора
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/target/generated-sources/annotations" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping>
+          <factory-entry name="primary" />
+        </datasource-mapping>
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" generated="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
+      <excludeFolder url="file://$MODULE_DIR$/target/maven-status" />
+      <excludeFolder url="file://$MODULE_DIR$/target/messenger" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-api:7.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.mail:javax.mail:1.5.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.enterprise:cdi-api:1.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jboss.spec.javax.annotation:jboss-annotations-api_1.2_spec:1.0.0.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jboss.resteasy:jaxrs-api:3.0.10.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.thymeleaf:thymeleaf:2.1.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: ognl:ognl:3.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.16.1-GA" level="project" />
+    <orderEntry type="library" name="Maven: org.unbescape:unbescape:1.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.6" level="project" />
+    <orderEntry type="library" name="Maven: javax.transaction:jta:1.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.5.0-b01" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.h2database:h2:1.4.190" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-http-server:2.3.24" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-http:2.3.24" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-framework:2.3.24" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.0-m05-2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-common:2.0-m05-2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-server:2.0-m05-2" level="project" />
+    <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0-m09" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.media:jersey-media-json-jackson:2.22.1" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.ext:jersey-entity-filtering:2.22.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.5.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.5.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.4" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.4" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.0-m05-2" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.guava-osgi:guava-osgi:11.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-api:2.1.17" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-utils:2.1.17" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-locator:2.1.17" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:javax.inject:2.1.17" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:asm-all-repackaged:2.1.17" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:cglib:2.1.17" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:eclipselink:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:javax.persistence:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.0.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jboss.spec.javax.ejb:jboss-ejb-api_3.2_spec:1.0.0.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.hibernate:hibernate-validator:5.1.3.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.1.3.GA" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.fasterxml:classmate:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:5.0.5.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:4.3.7.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss:jandex:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jboss.spec.javax.faces:jboss-jsf-api_2.2_spec:2.2.8" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.hibernate:hibernate-jpamodelgen:4.3.5.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging-annotations:1.2.0.Beta1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.hibernate:hibernate-validator-annotation-processor:5.1.3.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.junit:arquillian-junit-container:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.junit:arquillian-junit-core:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.test:arquillian-test-api:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.core:arquillian-core-api:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.test:arquillian-test-spi:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.core:arquillian-core-spi:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-test-api:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.shrinkwrap:shrinkwrap-api:1.1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-test-spi:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.core:arquillian-core-impl-base:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.test:arquillian-test-impl-base:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-impl-base:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.config:arquillian-config-api:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.config:arquillian-config-impl-base:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-test-impl-base:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.shrinkwrap:shrinkwrap-impl-base:1.1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.shrinkwrap:shrinkwrap-spi:1.1.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.arquillian.container:arquillian-container-spi:1.1.2.Final-wildfly-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.shrinkwrap.descriptors:shrinkwrap-descriptors-api-base:2.0.0-alpha-3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.shrinkwrap.descriptors:shrinkwrap-descriptors-spi:2.0.0-alpha-3" level="project" />
+  </component>
+</module>
+
+
+
+-----==========================================================================
+проект разворачивается, но выборка не работает
+
+
+Caused by: java.lang.IllegalArgumentException: Error occurred validating the Criteria
+	at org.hibernate@5.3.13.Final//org.hibernate.query.criteria.internal.compile.CriteriaCompiler.compile(CriteriaCompiler.java:48)
+
+
+Caused by: java.lang.IllegalStateException: No criteria query roots were specified
+at org.hibernate@5.3.13.Final//org.hibernate.query.criteria.internal.CriteriaQueryImpl.validate(CriteriaQueryImpl.java:253)
+
+
+
+Правильное написание методов запроса выборок
+
+ public List<Messengermap> getByFromid (String from_id) {
+        logger.info("Get by from_id = " + from_id);
+        CriteriaBuilder criteriaB = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Messengermap> criteriaQ = criteriaB.createQuery(Messengermap.class);
+        Root<Messengermap> element = criteriaQ.from(Messengermap.class);
+        //criteriaQ.select(element).where(criteriaB.equal(element.get("from_id"), from_id));  -- с этой строкой НЕ РАБОТАЛО
+
+        return entityManager.createQuery(criteriaQ).getResultList();
+
+
+-----==========================================================================
+
+
+
+"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.\"messenger.war\".WeldStartService" => "Failed to start service
+    Caused by: org.jboss.weld.exceptions.DefinitionException: WELD-000075: Normal scoped managed bean implementation class has a public field:  [EnhancedAnnotatedFieldImpl] @Inject public com.viktorfrolov.repository.MessengerMapRepository.entityManager"}}
+
+
+
+Решение
+
+
+у меня было объявлено так
+    @Inject
+    EntityManager entityManager;
+
+и в некоторых местах так
+    @Inject
+    public EntityManager entityManager;
+
+а надо так!
+
+    @Inject
+    private EntityManager entityManager;
+
+-----==========================================================================
+
+В правой панеле Maven Project - в разделе Dependences - некоторые строки подчёркнуты красным
+
+
+помлгло удаление папки .idea из проекта
+
+и перезапуск Этого проекта в IntellJ
+
+
+-----==========================================================================
+
+подключение MySQL драйвера в WildFly
+через WEB  интерфейс дало ошибку
+
+Failed to load datasource class: com.mysql.cj.jdbc.MysqlXADatasource"
+
+com.mysql.cj.jdbc.MysqlXADataSource
+com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+
+
+
+При запуске standalone.bat
+появляется ошибка
+ failure description: "WFLYJCA0034: Unable to instantiate driver class \"com
+.mysql.cj.jdbc.Driver\". See log (WARN) for more details"
+
+
+
+=============================================================================
+
+При создании запроса к БД через  строку, вида
+http://127.0.0.1:8080/mess/api/message_mapping/1
+
+выводились пустые данные , вида
+
+[{},{}]
+
+
+ПРИЧИНА
+в Entity  классе забыл прописать сеттеры и геттеры, хотя была полная уверенность, что сделал это
+
+=============================================================================
+При обращении к методу вывода данных из таблицы по id
+вида
+http://127.0.0.1:8080/mess/api/user/1
+получал HTTP ERROR 415 (страница не отображалась)
+
+а в логе WildFly сервера
+
+12:29:06,830 ERROR [org.jboss.resteasy.resteasy_jaxrs.i18n] (default task-1) RES
+TEASY002010: Failed to execute: javax.ws.rs.NotSupportedException: RESTEASY00320
+0: Could not find message body reader for type: long of content type: */*
+
+
+
+Причина
+REST класс UserRest   был как бы вложение самого себя, видимо при создании класса 
+я нечаянно изменил имя класса в теле, потом вернул, но класс в левой панели стал выглядеть так
+UserRest.java
+ - UserRest
+
+исправил - пересоздал класс, ошибка пропала   
+=============================================================================
+
+При ручном деплое WAR файла в WEB интерфейсе WildFly
+выпадает ошибка
+"не удаётся найти таблицу бд"
+
+
+
+МОЁ РЕШЕНИЕ
+
+добавил в файл PERSISTENCE.XML   строки 
+
+ <property name="hibernate.connection.username" value="postgres"/>
+ <property name="hibernate.connection.password" value="123"/>
+ <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/messenger"/>
+
+
+=============================================================================
+
+При ручном деплое WAR файла в WEB интерфейсе WildFly
+выпадает ошибка   (java.lang.ClassNotFoundException)
+
+
+{"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.restapp.POST_MODULE" => "WFLYSRV0153: Failed to process phase POST_MODULE of deployment \"restapp\"
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: com.copyrest.registrator.UserRegistrator from [Module \"deployment.restapp\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: com.copyrest.registrator.UserRegistrator from [Module \"deployment.restapp\" from Service Module Loader]"}}
+
+
+{"WFLYCTL0080: Failed services" => {"jboss.persistenceunit.\"messenger.war#primary\"" => "javax.persistence.PersistenceException: [PersistenceUnit: primary] Unable to build Hibernate SessionFactory
+    Caused by: javax.persistence.PersistenceException: [PersistenceUnit: primary] Unable to build Hibernate SessionFactory
+    Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [messengermap]"}}
+
+
+Интернет рекомендации, которые не сработали
+
+
+МОЁ РЕШЕНИЕ
+когда я деплоил проект, я менял Runtime name, и эта ошибка вылетала.
+но когда я не стал его менять - ошибка пропала.
+
+=============================================================================
+=============================================================================
+ERRORS  from others
+
+23:07:26,838 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "RaportGeneratorEE-0.0.1-SNAPSHOT.war")]) - failure description: {
+
+    "WFLYCTL0412: Required services that are not installed:" => ["jboss.security.security-domain.exampleApplicationDomain"],
+
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => ["jboss.deployment.unit.\"RaportGeneratorEE-0.0.1-SNAPSHOT.war\".component.ProgrammaticScheduler.CREATE is missing [jboss.security.security-domain.exampleApplicationDomain]"]
+
+}
+
+/subsystem=ejb3/application-security-domain=exampleApplicationDomain:add(security-domain=exampleDbSD) 
+
+
+https://developer.jboss.org/thread/277013
+
+
+=============================================================================
+=============================================================================
+=============================================================================
+
+OTHER EXAMPLES of configurations
+
+
+ persistence.xml
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             version="2.1"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="PostgresDS" transaction-type="JTA">
+        <jta-data-source>java:/PostgresDS</jta-data-source>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL94Dialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/edsdb"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.jdbc.batch_size" value="25"/>
+            <property name="hibernate.order_inserts" value="true"/>
+            <property name="hibernate.order_updates" value="true"/>
+            <property name="hibernate.connection.username" value="user"/>
+            <property name="hibernate.connection.password" value="password"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+
+
+
+=============================================================================
+Подключение  MySQl  к проекту
+
+
+==========
+==========
+POM.XML
+
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.47</version>
+</dependency>
+
+
+==========
+==========
+ Stanalone.xml
+
+
+<datasource jndi-name="java:jboss/datasources/messengerMysql" pool-name="messengerMysql" enabled="true" use-java-context="true" use-ccm="true">
+
+<connection-url>jdbc:mysql://localhost:3306/messenger</connection-url>
+					<driver>mysql</driver>
+					<security>
+						<user-name>root</user-name>
+						<password>root</password>
+					</security>
+					<!-- sql to call when connection is created -->
+					<new-connection-sql>SELECT 1</new-connection-sql>
+					<!-- sql to call on an existing pooled connection when it is obtained from pool -->
+					<validation>
+						<check-valid-connection-sql>SELECT 1</check-valid-connection-sql>
+						<valid-connection-checker
+						class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
+						<exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
+					</validation>
+					<pool>
+						<min-pool-size>1</min-pool-size>
+						<max-pool-size>50</max-pool-size>
+					</pool>
+					<statement>
+					<prepared-statement-cache-size>32</prepared-statement-cache-size>
+					<share-prepared-statements>true</share-prepared-statements>
+					</statement>
+				</datasource>
+
+
+
+
+<driver name="mysql" module="com.mysql">
+ 
+<driver-class>com.mysql.cj.jdbc.Driver</driver-class>
+                        
+<xa-datasource-class>com.mysql.cj.jdbc.MysqlXADataSource</xa-datasource-class>
+
+</driver>
+
+
+
+==========
+==========
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+version="2.1">
+  <persistence-unit name="messengerMysql" transaction-type="JTA">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <jta-data-source>java:jboss/datasources/messengerMysql</jta-data-source>
+ 
+  </persistence-unit>
+
+<properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/social_network" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="root" />
+ 
+            <property name="javax.persistence.validation.mode" value="none" />
+ 
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+        </properties>
+
+</persistence>
+
+==========
+==========
+
+
+
+ВАРИАНТЫ записи
+<xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+
+<xa-datasource-class>com.mysql.cj.jdbc.MysqlXADataSource</xa-datasource-class>
+
+
+
+=============================================================================
+Редактирование БД MySQL
+
+добавление FK 
+
+ERROR 1215: Cannot add foreign key constrain
+
+типы сопоставляемых ключей были разные   INT  и  BIGINT
+
+=============================================================================
+REST приложение настроено следующим образом:
+
+web.xml
+ <servlet>
+      <servlet-class>Servlet</servlet-class>
+      <init-param>
+          <param-name>javax.ws.rs.Application</param-name>
+          <param-value>com.tada.rest.RestApplication</param-value>
+      </init-param>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+
+После запуска TomCat и попытки доступа к приложению по адресу в браузере
+http://localhost/rest/service/status
+
+выпадает ошибка
+
+The origin server did not find a current representation for the target resource or is not willing 
+
+
+=============================================================================
+
+конфигурация JAX-RS проекта  без web.xml  файла
+
+======
+======
+<dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet</artifactId>
+    </dependency>
+======
+======
+@ApplicationPath("/*")
+public class MyApplication extends Application {
+    ...
+}
+
+======
+======
+
+
+======
+======
+
+
+
+=============================================================================
+
+JErsey Mysql  Tomcat
+
+ 27-Nov-2019 12:05:03.064 WARNING [http-nio-8080-exec-4] org.glassfish.jersey.internal.Errors.logErrors The following warnings have been detected: WARNING: Unknown HK2 failure detected:
+MultiException stack 1 of 3
+org.glassfish.hk2.api.UnsatisfiedDependencyException: There was no object available for injection at SystemInjecteeImpl(requiredType=EntityManager,parent=CalculatorV1_0,qualifiers={},position=-1,optional=false,self=false,unqualified=null,224831578)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:51)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:188)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:334)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:463)
+	at org.glassfish.jersey.inject.hk2.RequestContext.findOrCreate(RequestContext.java:59)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2102)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:758)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:721)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:691)
+	at org.glassfish.jersey.inject.hk2.AbstractHk2InjectionManager.getInstance(AbstractHk2InjectionManager.java:160)
+	at org.glassfish.jersey.inject.hk2.ImmediateHk2InjectionManager.getInstance(ImmediateHk2InjectionManager.java:30)
+	at org.glassfish.jersey.internal.inject.Injections.getOrCreate(Injections.java:105)
+	at org.glassfish.jersey.server.model.MethodHandler$ClassBasedMethodHandler.getInstance(MethodHandler.java:260)
+	at org.glassfish.jersey.server.internal.routing.PushMethodHandlerRouter.apply(PushMethodHandlerRouter.java:51)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:86)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:69)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:38)
+	at org.glassfish.jersey.process.internal.Stages.process(Stages.java:173)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:245)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:392)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:365)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:318)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+MultiException stack 2 of 3
+java.lang.IllegalArgumentException: While attempting to resolve the dependencies of com.test.resources.CalculatorV1_0 errors were found
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:224)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:334)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:463)
+	at org.glassfish.jersey.inject.hk2.RequestContext.findOrCreate(RequestContext.java:59)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2102)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:758)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:721)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:691)
+	at org.glassfish.jersey.inject.hk2.AbstractHk2InjectionManager.getInstance(AbstractHk2InjectionManager.java:160)
+	at org.glassfish.jersey.inject.hk2.ImmediateHk2InjectionManager.getInstance(ImmediateHk2InjectionManager.java:30)
+	at org.glassfish.jersey.internal.inject.Injections.getOrCreate(Injections.java:105)
+	at org.glassfish.jersey.server.model.MethodHandler$ClassBasedMethodHandler.getInstance(MethodHandler.java:260)
+	at org.glassfish.jersey.server.internal.routing.PushMethodHandlerRouter.apply(PushMethodHandlerRouter.java:51)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:86)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:69)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:38)
+	at org.glassfish.jersey.process.internal.Stages.process(Stages.java:173)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:245)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:392)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:365)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:318)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+MultiException stack 3 of 3
+java.lang.IllegalStateException: Unable to perform operation: resolve on com.test.resources.CalculatorV1_0
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:363)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:463)
+	at org.glassfish.jersey.inject.hk2.RequestContext.findOrCreate(RequestContext.java:59)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2102)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:758)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:721)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:691)
+	at org.glassfish.jersey.inject.hk2.AbstractHk2InjectionManager.getInstance(AbstractHk2InjectionManager.java:160)
+	at org.glassfish.jersey.inject.hk2.ImmediateHk2InjectionManager.getInstance(ImmediateHk2InjectionManager.java:30)
+	at org.glassfish.jersey.internal.inject.Injections.getOrCreate(Injections.java:105)
+	at org.glassfish.jersey.server.model.MethodHandler$ClassBasedMethodHandler.getInstance(MethodHandler.java:260)
+	at org.glassfish.jersey.server.internal.routing.PushMethodHandlerRouter.apply(PushMethodHandlerRouter.java:51)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:86)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:69)
+	at org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:38)
+	at org.glassfish.jersey.process.internal.Stages.process(Stages.java:173)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:245)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:392)
+	at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:365)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:318)
+	at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+
+
+
+
+
+
+
+
+
+
+IN WEB
+
+javax.servlet.ServletException: A MultiException has 3 exceptions.  They are:
+1. org.glassfish.hk2.api.UnsatisfiedDependencyException: There was no object available for injection at SystemInjecteeImpl(requiredType=EntityManager,parent=CalculatorV1_0,qualifiers={},position=-1,optional=false,self=false,unqualified=null,224831578)
+2. java.lang.IllegalArgumentException: While attempting to resolve the dependencies of com.test.resources.CalculatorV1_0 errors were found
+3. java.lang.IllegalStateException: Unable to perform operation: resolve on com.test.resources.CalculatorV1_0
+
+	org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:408)
+	org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:365)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:318)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+Root Cause
+
+A MultiException has 3 exceptions.  They are:
+1. org.glassfish.hk2.api.UnsatisfiedDependencyException: There was no object available for injection at SystemInjecteeImpl(requiredType=EntityManager,parent=CalculatorV1_0,qualifiers={},position=-1,optional=false,self=false,unqualified=null,224831578)
+2. java.lang.IllegalArgumentException: While attempting to resolve the dependencies of com.test.resources.CalculatorV1_0 errors were found
+3. java.lang.IllegalStateException: Unable to perform operation: resolve on com.test.resources.CalculatorV1_0
+
+	org.jvnet.hk2.internal.Collector.throwIfErrors(Collector.java:65)
+	org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:226)
+	org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:334)
+	org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:463)
+	org.glassfish.jersey.inject.hk2.RequestContext.findOrCreate(RequestContext.java:59)
+	org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2102)
+	org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:758)
+	org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:721)
+	org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:691)
+	org.glassfish.jersey.inject.hk2.AbstractHk2InjectionManager.getInstance(AbstractHk2InjectionManager.java:160)
+	org.glassfish.jersey.inject.hk2.ImmediateHk2InjectionManager.getInstance(ImmediateHk2InjectionManager.java:30)
+	org.glassfish.jersey.internal.inject.Injections.getOrCreate(Injections.java:105)
+	org.glassfish.jersey.server.model.MethodHandler$ClassBasedMethodHandler.getInstance(MethodHandler.java:260)
+	org.glassfish.jersey.server.internal.routing.PushMethodHandlerRouter.apply(PushMethodHandlerRouter.java:51)
+	org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:86)
+	org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:69)
+	org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:38)
+	org.glassfish.jersey.process.internal.Stages.process(Stages.java:173)
+	org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:245)
+	org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+	org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:392)
+	org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:365)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:318)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+Root Cause
+
+org.glassfish.hk2.api.UnsatisfiedDependencyException: There was no object available for injection at SystemInjecteeImpl(requiredType=EntityManager,parent=CalculatorV1_0,qualifiers={},position=-1,optional=false,self=false,unqualified=null,224831578)
+	org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:51)
+	org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:188)
+	org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:211)
+	org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:334)
+	org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:463)
+	org.glassfish.jersey.inject.hk2.RequestContext.findOrCreate(RequestContext.java:59)
+	org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2102)
+	org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:758)
+	org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetService(ServiceLocatorImpl.java:721)
+	org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:691)
+	org.glassfish.jersey.inject.hk2.AbstractHk2InjectionManager.getInstance(AbstractHk2InjectionManager.java:160)
+	org.glassfish.jersey.inject.hk2.ImmediateHk2InjectionManager.getInstance(ImmediateHk2InjectionManager.java:30)
+	org.glassfish.jersey.internal.inject.Injections.getOrCreate(Injections.java:105)
+	org.glassfish.jersey.server.model.MethodHandler$ClassBasedMethodHandler.getInstance(MethodHandler.java:260)
+	org.glassfish.jersey.server.internal.routing.PushMethodHandlerRouter.apply(PushMethodHandlerRouter.java:51)
+	org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:86)
+	org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	org.glassfish.jersey.server.internal.routing.RoutingStage._apply(RoutingStage.java:89)
+	org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:69)
+	org.glassfish.jersey.server.internal.routing.RoutingStage.apply(RoutingStage.java:38)
+	org.glassfish.jersey.process.internal.Stages.process(Stages.java:173)
+	org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:245)
+	org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+	org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:392)
+	org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:346)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:365)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:318)
+	org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:205)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+
+
+
+=============================================================================
+
+
+ARNING: HK2 service reification failed for [org.glassfish.jersey.jaxb.internal.JaxbStringReaderProvider$RootElementProvider] with an exception:
+MultiException stack 1 of 4
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:315)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.getAllMethods(ClassReflectionHelperImpl.java:108)
+	at org.jvnet.hk2.internal.Utilities.findInitializerMethods(Utilities.java:1339)
+	at org.jvnet.hk2.internal.DefaultClassAnalyzer.getInitializerMethods(DefaultClassAnalyzer.java:107)
+	at org.glassfish.jersey.internal.inject.JerseyClassAnalyzer.getInitializerMethods(JerseyClassAnalyzer.java:242)
+	at org.jvnet.hk2.internal.Utilities.getInitMethods(Utilities.java:218)
+	at org.jvnet.hk2.internal.ClazzCreator.initialize(ClazzCreator.java:144)
+	at org.jvnet.hk2.internal.ClazzCreator.initialize(ClazzCreator.java:179)
+	at org.jvnet.hk2.internal.SystemDescriptor.internalReify(SystemDescriptor.java:723)
+	at org.jvnet.hk2.internal.SystemDescriptor.reify(SystemDescriptor.java:678)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.reifyDescriptor(ServiceLocatorImpl.java:459)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.narrow(ServiceLocatorImpl.java:2235)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.access$1200(ServiceLocatorImpl.java:123)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl$9.compute(ServiceLocatorImpl.java:1361)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl$9.compute(ServiceLocatorImpl.java:1356)
+	at org.glassfish.hk2.utilities.cache.internal.WeakCARCacheImpl.compute(WeakCARCacheImpl.java:116)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetAllServiceHandles(ServiceLocatorImpl.java:1418)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getAllServiceHandles(ServiceLocatorImpl.java:1343)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getAllServiceHandles(ServiceLocatorImpl.java:1332)
+	at org.glassfish.jersey.internal.inject.Providers.getServiceHandles(Providers.java:354)
+	at org.glassfish.jersey.internal.inject.Providers.getProviders(Providers.java:187)
+	at org.glassfish.jersey.server.internal.inject.ParamConverterFactory.<init>(ParamConverterFactory.java:83)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.glassfish.hk2.utilities.reflection.ReflectionHelper.makeMe(ReflectionHelper.java:1350)
+	at org.jvnet.hk2.internal.ClazzCreator.createMe(ClazzCreator.java:271)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:365)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:693)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:78)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:228)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:357)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:693)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:78)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:228)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:357)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:88)
+	at org.glassfish.jersey.internal.inject.ProviderToService.apply(ProviderToService.java:58)
+	at org.glassfish.jersey.internal.inject.ProviderToService.apply(ProviderToService.java:54)
+	at jersey.repackaged.com.google.common.collect.Iterators$8.transform(Iterators.java:799)
+	at jersey.repackaged.com.google.common.collect.TransformedIterator.next(TransformedIterator.java:48)
+	at java.base/java.util.AbstractCollection.addAll(AbstractCollection.java:335)
+	at java.base/java.util.LinkedHashSet.<init>(LinkedHashSet.java:169)
+	at jersey.repackaged.com.google.common.collect.Sets.newLinkedHashSet(Sets.java:325)
+	at org.glassfish.jersey.internal.inject.Providers.getClasses(Providers.java:392)
+	at org.glassfish.jersey.internal.inject.Providers.getProviders(Providers.java:188)
+	at org.glassfish.jersey.server.spi.internal.ParameterValueHelper.createValueProviders(ParameterValueHelper.java:130)
+	at org.glassfish.jersey.server.model.Invocable.getValueProviders(Invocable.java:320)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.checkValueProviders(ResourceMethodValidator.java:165)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.checkMethod(ResourceMethodValidator.java:106)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.visitJaxrsResourceMethod(ResourceMethodValidator.java:102)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.visitResourceMethod(ResourceMethodValidator.java:92)
+	at org.glassfish.jersey.server.model.ResourceMethod.accept(ResourceMethod.java:873)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:161)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.access$000(ComponentModelValidator.java:90)
+	at org.glassfish.jersey.server.model.ComponentModelValidator$1.run(ComponentModelValidator.java:151)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validate(ComponentModelValidator.java:146)
+	at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:550)
+	at org.glassfish.jersey.server.ApplicationHandler.access$500(ApplicationHandler.java:184)
+	at org.glassfish.jersey.server.ApplicationHandler$3.call(ApplicationHandler.java:350)
+	at org.glassfish.jersey.server.ApplicationHandler$3.call(ApplicationHandler.java:347)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.processWithException(Errors.java:255)
+	at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:347)
+	at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:392)
+	at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:177)
+	at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:369)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1134)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:986)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4871)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5180)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.manageApp(HostConfig.java:1728)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:456)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:405)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:691)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:391)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture.get(LRUHybridCache.java:164)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:303)
+	... 156 more
+Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities$3.run(ClassReflectionHelperUtilities.java:108)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities$3.run(ClassReflectionHelperUtilities.java:104)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.secureGetDeclaredMethods(ClassReflectionHelperUtilities.java:104)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getDeclaredMethodWrappers(ClassReflectionHelperUtilities.java:133)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getAllMethodWrappers(ClassReflectionHelperUtilities.java:192)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getAllMethodWrappers(ClassReflectionHelperUtilities.java:193)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$3.compute(ClassReflectionHelperImpl.java:84)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$3.compute(ClassReflectionHelperImpl.java:80)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:115)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:111)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture.run(LRUHybridCache.java:173)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:292)
+	... 156 more
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.Unmarshaller
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+	... 173 more
+MultiException stack 2 of 4
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:315)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.getAllMethods(ClassReflectionHelperImpl.java:108)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.getPostConstructMethod(ClassReflectionHelperImpl.java:184)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.access$200(ClassReflectionHelperImpl.java:56)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$1.compute(ClassReflectionHelperImpl.java:64)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$1.compute(ClassReflectionHelperImpl.java:60)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:115)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:111)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture.run(LRUHybridCache.java:173)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:292)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.findPostConstruct(ClassReflectionHelperImpl.java:119)
+	at org.jvnet.hk2.internal.Utilities.findPostConstruct(Utilities.java:1370)
+	at org.jvnet.hk2.internal.DefaultClassAnalyzer.getPostConstructMethod(DefaultClassAnalyzer.java:130)
+	at org.glassfish.jersey.internal.inject.JerseyClassAnalyzer.getPostConstructMethod(JerseyClassAnalyzer.java:252)
+	at org.jvnet.hk2.internal.Utilities.getPostConstruct(Utilities.java:279)
+	at org.jvnet.hk2.internal.ClazzCreator.initialize(ClazzCreator.java:168)
+	at org.jvnet.hk2.internal.ClazzCreator.initialize(ClazzCreator.java:179)
+	at org.jvnet.hk2.internal.SystemDescriptor.internalReify(SystemDescriptor.java:723)
+	at org.jvnet.hk2.internal.SystemDescriptor.reify(SystemDescriptor.java:678)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.reifyDescriptor(ServiceLocatorImpl.java:459)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.narrow(ServiceLocatorImpl.java:2235)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.access$1200(ServiceLocatorImpl.java:123)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl$9.compute(ServiceLocatorImpl.java:1361)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl$9.compute(ServiceLocatorImpl.java:1356)
+	at org.glassfish.hk2.utilities.cache.internal.WeakCARCacheImpl.compute(WeakCARCacheImpl.java:116)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetAllServiceHandles(ServiceLocatorImpl.java:1418)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getAllServiceHandles(ServiceLocatorImpl.java:1343)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getAllServiceHandles(ServiceLocatorImpl.java:1332)
+	at org.glassfish.jersey.internal.inject.Providers.getServiceHandles(Providers.java:354)
+	at org.glassfish.jersey.internal.inject.Providers.getProviders(Providers.java:187)
+	at org.glassfish.jersey.server.internal.inject.ParamConverterFactory.<init>(ParamConverterFactory.java:83)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.glassfish.hk2.utilities.reflection.ReflectionHelper.makeMe(ReflectionHelper.java:1350)
+	at org.jvnet.hk2.internal.ClazzCreator.createMe(ClazzCreator.java:271)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:365)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:693)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:78)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:228)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:357)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:693)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:78)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:228)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:357)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:88)
+	at org.glassfish.jersey.internal.inject.ProviderToService.apply(ProviderToService.java:58)
+	at org.glassfish.jersey.internal.inject.ProviderToService.apply(ProviderToService.java:54)
+	at jersey.repackaged.com.google.common.collect.Iterators$8.transform(Iterators.java:799)
+	at jersey.repackaged.com.google.common.collect.TransformedIterator.next(TransformedIterator.java:48)
+	at java.base/java.util.AbstractCollection.addAll(AbstractCollection.java:335)
+	at java.base/java.util.LinkedHashSet.<init>(LinkedHashSet.java:169)
+	at jersey.repackaged.com.google.common.collect.Sets.newLinkedHashSet(Sets.java:325)
+	at org.glassfish.jersey.internal.inject.Providers.getClasses(Providers.java:392)
+	at org.glassfish.jersey.internal.inject.Providers.getProviders(Providers.java:188)
+	at org.glassfish.jersey.server.spi.internal.ParameterValueHelper.createValueProviders(ParameterValueHelper.java:130)
+	at org.glassfish.jersey.server.model.Invocable.getValueProviders(Invocable.java:320)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.checkValueProviders(ResourceMethodValidator.java:165)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.checkMethod(ResourceMethodValidator.java:106)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.visitJaxrsResourceMethod(ResourceMethodValidator.java:102)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.visitResourceMethod(ResourceMethodValidator.java:92)
+	at org.glassfish.jersey.server.model.ResourceMethod.accept(ResourceMethod.java:873)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:161)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.access$000(ComponentModelValidator.java:90)
+	at org.glassfish.jersey.server.model.ComponentModelValidator$1.run(ComponentModelValidator.java:151)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validate(ComponentModelValidator.java:146)
+	at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:550)
+	at org.glassfish.jersey.server.ApplicationHandler.access$500(ApplicationHandler.java:184)
+	at org.glassfish.jersey.server.ApplicationHandler$3.call(ApplicationHandler.java:350)
+	at org.glassfish.jersey.server.ApplicationHandler$3.call(ApplicationHandler.java:347)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.processWithException(Errors.java:255)
+	at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:347)
+	at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:392)
+	at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:177)
+	at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:369)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1134)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:986)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4871)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5180)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.manageApp(HostConfig.java:1728)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:456)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:405)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:691)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:391)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture.get(LRUHybridCache.java:164)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:303)
+	... 166 more
+Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities$3.run(ClassReflectionHelperUtilities.java:108)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities$3.run(ClassReflectionHelperUtilities.java:104)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.secureGetDeclaredMethods(ClassReflectionHelperUtilities.java:104)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getDeclaredMethodWrappers(ClassReflectionHelperUtilities.java:133)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getAllMethodWrappers(ClassReflectionHelperUtilities.java:192)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getAllMethodWrappers(ClassReflectionHelperUtilities.java:193)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$3.compute(ClassReflectionHelperImpl.java:84)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$3.compute(ClassReflectionHelperImpl.java:80)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:115)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:111)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture.run(LRUHybridCache.java:173)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:292)
+	... 166 more
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.Unmarshaller
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+	... 183 more
+MultiException stack 3 of 4
+java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:315)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.getAllMethods(ClassReflectionHelperImpl.java:108)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.getPreDestroyMethod(ClassReflectionHelperImpl.java:209)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.access$400(ClassReflectionHelperImpl.java:56)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$2.compute(ClassReflectionHelperImpl.java:74)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$2.compute(ClassReflectionHelperImpl.java:70)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:115)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:111)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture.run(LRUHybridCache.java:173)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:292)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl.findPreDestroy(ClassReflectionHelperImpl.java:125)
+	at org.jvnet.hk2.internal.Utilities.findPreDestroy(Utilities.java:1386)
+	at org.jvnet.hk2.internal.DefaultClassAnalyzer.getPreDestroyMethod(DefaultClassAnalyzer.java:141)
+	at org.glassfish.jersey.internal.inject.JerseyClassAnalyzer.getPreDestroyMethod(JerseyClassAnalyzer.java:257)
+	at org.jvnet.hk2.internal.Utilities.getPreDestroy(Utilities.java:301)
+	at org.jvnet.hk2.internal.ClazzCreator.initialize(ClazzCreator.java:169)
+	at org.jvnet.hk2.internal.ClazzCreator.initialize(ClazzCreator.java:179)
+	at org.jvnet.hk2.internal.SystemDescriptor.internalReify(SystemDescriptor.java:723)
+	at org.jvnet.hk2.internal.SystemDescriptor.reify(SystemDescriptor.java:678)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.reifyDescriptor(ServiceLocatorImpl.java:459)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.narrow(ServiceLocatorImpl.java:2235)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.access$1200(ServiceLocatorImpl.java:123)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl$9.compute(ServiceLocatorImpl.java:1361)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl$9.compute(ServiceLocatorImpl.java:1356)
+	at org.glassfish.hk2.utilities.cache.internal.WeakCARCacheImpl.compute(WeakCARCacheImpl.java:116)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetAllServiceHandles(ServiceLocatorImpl.java:1418)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getAllServiceHandles(ServiceLocatorImpl.java:1343)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getAllServiceHandles(ServiceLocatorImpl.java:1332)
+	at org.glassfish.jersey.internal.inject.Providers.getServiceHandles(Providers.java:354)
+	at org.glassfish.jersey.internal.inject.Providers.getProviders(Providers.java:187)
+	at org.glassfish.jersey.server.internal.inject.ParamConverterFactory.<init>(ParamConverterFactory.java:83)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.glassfish.hk2.utilities.reflection.ReflectionHelper.makeMe(ReflectionHelper.java:1350)
+	at org.jvnet.hk2.internal.ClazzCreator.createMe(ClazzCreator.java:271)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:365)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:693)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:78)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:228)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:357)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:693)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:78)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:228)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:357)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:88)
+	at org.glassfish.jersey.internal.inject.ProviderToService.apply(ProviderToService.java:58)
+	at org.glassfish.jersey.internal.inject.ProviderToService.apply(ProviderToService.java:54)
+	at jersey.repackaged.com.google.common.collect.Iterators$8.transform(Iterators.java:799)
+	at jersey.repackaged.com.google.common.collect.TransformedIterator.next(TransformedIterator.java:48)
+	at java.base/java.util.AbstractCollection.addAll(AbstractCollection.java:335)
+	at java.base/java.util.LinkedHashSet.<init>(LinkedHashSet.java:169)
+	at jersey.repackaged.com.google.common.collect.Sets.newLinkedHashSet(Sets.java:325)
+	at org.glassfish.jersey.internal.inject.Providers.getClasses(Providers.java:392)
+	at org.glassfish.jersey.internal.inject.Providers.getProviders(Providers.java:188)
+	at org.glassfish.jersey.server.spi.internal.ParameterValueHelper.createValueProviders(ParameterValueHelper.java:130)
+	at org.glassfish.jersey.server.model.Invocable.getValueProviders(Invocable.java:320)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.checkValueProviders(ResourceMethodValidator.java:165)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.checkMethod(ResourceMethodValidator.java:106)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.visitJaxrsResourceMethod(ResourceMethodValidator.java:102)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.visitResourceMethod(ResourceMethodValidator.java:92)
+	at org.glassfish.jersey.server.model.ResourceMethod.accept(ResourceMethod.java:873)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:161)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.access$000(ComponentModelValidator.java:90)
+	at org.glassfish.jersey.server.model.ComponentModelValidator$1.run(ComponentModelValidator.java:151)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validate(ComponentModelValidator.java:146)
+	at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:550)
+	at org.glassfish.jersey.server.ApplicationHandler.access$500(ApplicationHandler.java:184)
+	at org.glassfish.jersey.server.ApplicationHandler$3.call(ApplicationHandler.java:350)
+	at org.glassfish.jersey.server.ApplicationHandler$3.call(ApplicationHandler.java:347)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.processWithException(Errors.java:255)
+	at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:347)
+	at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:392)
+	at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:177)
+	at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:369)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1134)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:986)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4871)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5180)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.manageApp(HostConfig.java:1728)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:456)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:405)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:691)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:391)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+Caused by: java.util.concurrent.ExecutionException: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture.get(LRUHybridCache.java:164)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:303)
+	... 166 more
+Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/Unmarshaller
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3167)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2310)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities$3.run(ClassReflectionHelperUtilities.java:108)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities$3.run(ClassReflectionHelperUtilities.java:104)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:312)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.secureGetDeclaredMethods(ClassReflectionHelperUtilities.java:104)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getDeclaredMethodWrappers(ClassReflectionHelperUtilities.java:133)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getAllMethodWrappers(ClassReflectionHelperUtilities.java:192)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperUtilities.getAllMethodWrappers(ClassReflectionHelperUtilities.java:193)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$3.compute(ClassReflectionHelperImpl.java:84)
+	at org.glassfish.hk2.utilities.reflection.internal.ClassReflectionHelperImpl$3.compute(ClassReflectionHelperImpl.java:80)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:115)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture$1.call(LRUHybridCache.java:111)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache$OriginThreadAwareFuture.run(LRUHybridCache.java:173)
+	at org.glassfish.hk2.utilities.cache.LRUHybridCache.compute(LRUHybridCache.java:292)
+	... 166 more
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.Unmarshaller
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1365)
+	at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1188)
+	... 183 more
+MultiException stack 4 of 4
+java.lang.IllegalArgumentException: Errors were discovered while reifying SystemDescriptor(
+	implementation=org.glassfish.jersey.jaxb.internal.JaxbStringReaderProvider$RootElementProvider
+	contracts={javax.ws.rs.ext.ParamConverterProvider}
+	scope=javax.inject.Singleton
+	qualifiers={}
+	descriptorType=CLASS
+	descriptorVisibility=NORMAL
+	metadata=
+	rank=0
+	loader=org.glassfish.hk2.utilities.binding.AbstractBinder$2@b2c8870
+	proxiable=null
+	proxyForSameScope=null
+	analysisName=null
+	id=128
+	locatorId=0
+	identityHashCode=64231446
+	reified=false)
+	at org.jvnet.hk2.internal.SystemDescriptor.reify(SystemDescriptor.java:689)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.reifyDescriptor(ServiceLocatorImpl.java:459)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.narrow(ServiceLocatorImpl.java:2235)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.access$1200(ServiceLocatorImpl.java:123)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl$9.compute(ServiceLocatorImpl.java:1361)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl$9.compute(ServiceLocatorImpl.java:1356)
+	at org.glassfish.hk2.utilities.cache.internal.WeakCARCacheImpl.compute(WeakCARCacheImpl.java:116)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.internalGetAllServiceHandles(ServiceLocatorImpl.java:1418)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getAllServiceHandles(ServiceLocatorImpl.java:1343)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getAllServiceHandles(ServiceLocatorImpl.java:1332)
+	at org.glassfish.jersey.internal.inject.Providers.getServiceHandles(Providers.java:354)
+	at org.glassfish.jersey.internal.inject.Providers.getProviders(Providers.java:187)
+	at org.glassfish.jersey.server.internal.inject.ParamConverterFactory.<init>(ParamConverterFactory.java:83)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.glassfish.hk2.utilities.reflection.ReflectionHelper.makeMe(ReflectionHelper.java:1350)
+	at org.jvnet.hk2.internal.ClazzCreator.createMe(ClazzCreator.java:271)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:365)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:693)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:78)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:228)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:357)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceLocatorImpl.getService(ServiceLocatorImpl.java:693)
+	at org.jvnet.hk2.internal.ThreeThirtyResolver.resolve(ThreeThirtyResolver.java:78)
+	at org.jvnet.hk2.internal.ClazzCreator.resolve(ClazzCreator.java:211)
+	at org.jvnet.hk2.internal.ClazzCreator.resolveAllDependencies(ClazzCreator.java:228)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:357)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:83)
+	at org.jvnet.hk2.internal.SingletonContext$1.compute(SingletonContext.java:71)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture$1.call(Cache.java:97)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.glassfish.hk2.utilities.cache.Cache$OriginThreadAwareFuture.run(Cache.java:154)
+	at org.glassfish.hk2.utilities.cache.Cache.compute(Cache.java:199)
+	at org.jvnet.hk2.internal.SingletonContext.findOrCreate(SingletonContext.java:122)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2020)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:114)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:88)
+	at org.glassfish.jersey.internal.inject.ProviderToService.apply(ProviderToService.java:58)
+	at org.glassfish.jersey.internal.inject.ProviderToService.apply(ProviderToService.java:54)
+	at jersey.repackaged.com.google.common.collect.Iterators$8.transform(Iterators.java:799)
+	at jersey.repackaged.com.google.common.collect.TransformedIterator.next(TransformedIterator.java:48)
+	at java.base/java.util.AbstractCollection.addAll(AbstractCollection.java:335)
+	at java.base/java.util.LinkedHashSet.<init>(LinkedHashSet.java:169)
+	at jersey.repackaged.com.google.common.collect.Sets.newLinkedHashSet(Sets.java:325)
+	at org.glassfish.jersey.internal.inject.Providers.getClasses(Providers.java:392)
+	at org.glassfish.jersey.internal.inject.Providers.getProviders(Providers.java:188)
+	at org.glassfish.jersey.server.spi.internal.ParameterValueHelper.createValueProviders(ParameterValueHelper.java:130)
+	at org.glassfish.jersey.server.model.Invocable.getValueProviders(Invocable.java:320)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.checkValueProviders(ResourceMethodValidator.java:165)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.checkMethod(ResourceMethodValidator.java:106)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.visitJaxrsResourceMethod(ResourceMethodValidator.java:102)
+	at org.glassfish.jersey.server.model.ResourceMethodValidator.visitResourceMethod(ResourceMethodValidator.java:92)
+	at org.glassfish.jersey.server.model.ResourceMethod.accept(ResourceMethod.java:873)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:161)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validateWithErrors(ComponentModelValidator.java:167)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.access$000(ComponentModelValidator.java:90)
+	at org.glassfish.jersey.server.model.ComponentModelValidator$1.run(ComponentModelValidator.java:151)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+	at org.glassfish.jersey.server.model.ComponentModelValidator.validate(ComponentModelValidator.java:146)
+	at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:550)
+	at org.glassfish.jersey.server.ApplicationHandler.access$500(ApplicationHandler.java:184)
+	at org.glassfish.jersey.server.ApplicationHandler$3.call(ApplicationHandler.java:350)
+	at org.glassfish.jersey.server.ApplicationHandler$3.call(ApplicationHandler.java:347)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+	at org.glassfish.jersey.internal.Errors.processWithException(Errors.java:255)
+	at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:347)
+	at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:392)
+	at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:177)
+	at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:369)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1134)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:986)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:4871)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5180)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.manageApp(HostConfig.java:1728)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:456)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:405)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:289)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:691)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:391)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=============================================================================
+
+
+
+=============================================================================
+
+
+
+

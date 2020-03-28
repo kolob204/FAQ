@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+        http://xmlns.jcp.org/xml/ns/persistence
+        http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+        
+		<!-- FOR Jboss  configuration-->
+			<!-- <persistence-unit name="MYpersistenceUnit">      -->
+		<!-- Jboss + MySQL  configuration-->	
+			<!-- <jta-data-source>java:jboss/datasources/messengerMysql</jta-data-source>  -->
+        
+		
+		<!--   FOR TOMCAT configuration-->
+		<persistence-unit name="MYpersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <non-jta-data-source>calculator</non-jta-data-source>
+		<class>com.webservice.entity.City</class>
+		<!--   Объявить можно больше одного класса  -->
+        <!--<class>com.webservice.entity.Distance</class>  -->
+		<!-- 
+mysql-connector < 5.5.xx use com.mysql.jdbc.Driver
+mysql-connector > 5.5.xx use com.mysql.cj.jdbc.Driver
+		-->
+        <properties>
+			<!-- При использовании WildFly  hibernate.connection.url  не указывается
+          		 так кк URL уже задан в standalone.xml настроек WildFly	-->
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/DB"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="root"/>
+
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.jdbc.batch_size" value="25"/>
+            <property name="hibernate.order_inserts" value="true"/>
+            <property name="hibernate.order_updates" value="true"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+
+        </properties>
+    </persistence-unit>
+
+</persistence>

@@ -1,0 +1,543 @@
+https://blog.usejournal.com/most-frequently-java-interview-question-127e923f70d9
+
+=============
+Difference between static and non-static methods, variables And explain their memory architecture as well?
+Чем отличаются статические методы и переменные от нестатических? Объясните их архитектуру в памяти?
+
+Answer:
+статические методы и переменные можно использовать не создавая объект.
+
+К статическим переменным мы можем обратится как из статического метода, так и из не статического.
+Но из статического метода мы не можем обратится к обычной переменной.(не статической)
+
+Статическая переменная хранится в одной области памяти и при её изменении - эти изменения видны из любой точки программы.
+А для обычной переменной - каждая переменная существует для своего экземпляра класса.
+
+=============
+What do you understand by using of final keyword with classes and variables as well, give the case where 
+you will prefer to use the final keyword?
+Почему вы используете ключевое слово final с классами и переменными? Приведите пример,
+ в каком случае вы предпочтёте использовать final.
+
+Answer:
+
+что для классов, что для переменных смысл примерно один: они становятся не изменяемыми
+переменные - становятся константами
+
+для класса это ещё значит, что от него нельзя наследоваться.
+
+для метода это означает - что его нельзя переопределить.
+final нельзя применить к конструктору.
+
+
+=============
+What is typecasting? Suppose there is a data which is of type double then how can you show that double in int data type?
+Что такое приведение типов? Предположим, что есть данные, которые имеют тип double,
+ как вы можете показать эти данные в типе int?
+
+Answer:
+double d = 10.0;
+int i = (int) d;
+
+
+double data = 3452.345
+Double newData = new Double(data);
+int value = newData.intValue();
+
+
+=============
+What are the main advantages of polymorphism? And what is the alternate of polymorphism?
+Каковы основные преимущества полиморфизма? Что является альтернативой полиморфизма?
+
+Answer:
+Преимущества
+Создается код, используемый повторно: это значит, что если однажды созданы классы,
+   реализованы и протестированы, то они могут быть легко использованы
+- Полиморфизм позволяет вам подменять объекты для тех кто их вызывает и вызывающий даже не знает об этом. 
+- Благодаря полиморфизму мы можем создавать приложения, 
+  которые смогут работать с классами, которых возможно еще даже нет.   
+
+  
+Альтернатива полиморфизма
+- условный оператор
+- if  /  case
+
+Пример полиморфного метода
+print
+
+Пример полиморфизма из жизни
+Весь мир полиморфен. Взять человека как гражданина государства. Он является наследником класса Гражданин.
+Если бы не было полиморфизма - в конституции РФ будут статьи для каждого гражданина РФ поименно.
+
+
+=============
+What is constructor chaining in java?
+Что такое цепочка конструктора в Java?
+
+Answer:
+это вызов конструктора из конструктора по цепочке.
+проще понять на примере
+
+Class MyClass() {
+
+private String s;
+private int i;
+
+public void MyClass() {
+	this.MyClass("next");
+}
+
+public void MyClass(String s) {
+	this.MyClass(s,6);
+}
+
+public void MyClass(String s,int i) {
+	this.s=s;
+	this.i=i;
+}
+
+}
+
+public Main {
+
+psvm () {
+	MyClass my = new MyClass();
+}
+}
+
+Зачем это нужно, и где используется:
+это Runtime полиморфизм
+Например управление лифтом, вы нажимаете кнопку (вызывается конструктор объекта - приводящего в к выполнению логики лифта)
+и в зависимости от переданного параметра начиется действие.
+
+Это может быть кнопка этажа, а может быть служебная кнопка.
+
+=============
+Explain constructor with the help of inheritance?
+Расскажите о конструкторах при наследовании?
+
+Answer:
+
+В Java есть особенность, связанная с наследованием конструкторов и их вызовом.
+В конструкторе дочернего класса, перед тем как будут выполнены выражения тела, неявно 
+вызывается дефолтный (без параметров) конструктор предка.
+Причем конструктор без параметров обязательно должен быть 
+в родительском классе, если в дочернем предполагаются только конструкторы с аргументами, 
+а родительские конструкторы не вызываются явно. В этом случае, если в родительском классе
+ будут только конструкторы с аргументами, то в дочернем будет возникать ошибка.
+
+ либо, в конструкторе дочернего класса необходимо вызывать конструктор родительского, передавая параметры,
+ если у родителя определён только конструктор с параметрами
+ 
+ class Child extends Parent {
+    int b;
+ 
+    Child(int a, int b) {
+        super(a);
+        this.b = b;
+    }
+}
+ 
+
+=============
+‘Super’ keyword is used to access superclass properties, but what when you are not allowed to use super 
+then how can you access the property of superclass, if yes then how?
+Ключевое слово ‘Super’ используется для доступа к свойствам суперкласса.
+Как получить доступ к этим свойствам, если использовать ‘Super’ не разрешено?
+
+Answer:
+getters
+setters
+reflection
+
+
+=============
+Suppose you have 11th, 12th class books in your beg, now how will you use inheritance to show the relationship between them?
+Предположим, у вас в сумке учебники за 11-й, 12-й классы, объясните, как вы будете использовать наследование, чтобы показать отношения между ними?
+
+Answer:
+book12 extends book11
+
+знания книги за старший класс содержат в себе знания из учебника за младший класс(в том или ином виде)
+и + дополнительные знания
+
+=============
+Why java compiler needs main method static only?
+Почему компилятору Java нужен только статический основной метод?
+
+Answer:
+Потому что на этапе ранней инициализации ещё не создано не одного объекта,
+и чтобы программа начала свою работу - нам надо обратится к какой то оборной точке, этой точкой будет статичный класс.
+
+=============
+What do you understand by anonymous word? 
+And what is the impact of anonymous array and object in java? 
+Explain memory structure with or without anonymous?
+Как вы понимаете анонимность? Каковы особенности анонимного массива и объекта в Java? Как анонимность влияет на структуру памяти?
+
+Answer:
+Анонимный - значит без присвоенного указателя на объект.
+
+распечатка анонимного массива
+print(new int[]{10,20,30,40});
+
+Получение анонимного массива, в качестве параметра метода
+ static void print(int a[])
+ {
+  for(int i=0;i<a.length;++i)
+  System.out.print(a[i]+" ");
+ }
+
+ Анонимные массивы можно использовать для повторной инициализации массива
+ // одновременное создание и инициализация массива
+int[] smallPrimes = { 2, 3, 5, 7, 11, 13 };
+// повторная инициализация массива
+smallPrimes = new int[] { 17, 19, 23, 29, 31, 37 };
+
+ 
+=============
+Why java requires inner class?
+What do you understand by static inner classes in java?
+And where will you use a static and non-static class?
+Почему Java требует внутренние классы? Как вы понимаете статические внутренние классы в Java? И где вы будете использовать статический и нестатический класс?
+
+Answer:
+такие улассы делятся на 2 вида:
+Non-static nested classes — нестатические вложенные классы. По-другому их еще называют inner classes — внутренние классы.
+Static nested classes — статические вложенные классы.
+
+В свою очередь, внутренние классы (inner classes) имеют два особых подвида. Помимо того, что внутренний класс может быть просто внутренним классом, он еще бывает:
+локальным классом (local class)
+анонимным классом (anonymous class)
+
+Внутренние классы нужны для проектирования какого то объекта, меньшие части которого описаны во вложенных классах.
+А отдельно создавать такие классы - почти бессмысленно, потому что, например:
+
+в машине есть деталь, которая в свою очередь не простая, и требует объектного представляения,
+у неё есть какие то характеристики и ещё более менлкие состовляющие.
+
+если мы содадим эту деталь , типа
+
+Detal detal = new Detal();
+detal.doAction(); // деталь типа вришла в действие, но как то без автомобиля...хотя она вообще никак не могла прийти в действие по сути,
+потому что она зависит от других узлов авто...как будто она как то сама заработала в вакууме.
+С точки зрения компилятора - это вообще не принципиально, можно написать и отдельными классами,
+суть в том, чтобы читающие ваш код могли понимать логическую связь объектов - подобно тому, как устроен реальный мир.
+
+А вот если мы будем писать программу - магазин автозапчастей, тогда связявать более целостные объекты с более мелкими - Будет ошибкой.
+В этой абстракции - всё существует по отдельности, запчасти проходят по накладным как отдельный объект, не связанный ни с кем.
+
+Синтаксис создания объектов внутренних классов
+       Bicycle peugeot = new Bicycle("Peugeot", 120);
+       Bicycle.SteeringWheel wheel = peugeot.new SteeringWheel();
+       Bicycle.Seat seat = peugeot.new Seat();
+Здесь, 	  SteeringWheel  и  Seat  - внутренние классы.
+ 
+У внутренних классов есть доступ ко всем переменным внешнего класса, даже если они private.
+
+Экземпляр внутреннего класса нельзя создать в статическом методе внешнего класса.
+так как обращаясь к статическому методу, может случится так, что экземпляра внешнего класса мы ещё не создали, а уже пытаемся создать экземпляр внутреннего класса.
+Это в корне абсурдно.
+
+наличие статических переменных и методов во внутренних классах запрещено
+компилятор выдаст ошибку
+
+статические внутренние классы отличаются тем, что их экземпляры могут существовать без объекта внешнего класса.
+их используют тогда, когда представление абстракции описания объекта таково, что этот внутренний класс не привязан жёстко к внешнему.
+Например это класс чертежа какого то объекта реального мира. 
+Как чертеж, так и объект могут существовать друг без друга.
+Но являются по сути своей связанными идейно.
+
+Статический вложенный класс может обращаться только к статическим полям внешнего класса.
+так как экземпляр внешнего класса может не существовать.
+
+Экземпляро статического класса можно создать сколько угодно, static для класса, не означает единственность сущности.
+
+
+=============
+An abstraction is hiding information in java, how java showing abstraction and write a program where you have to show abstraction and do the same program without abstraction?
+Абстракция скрывает информацию в Java. Как в Java представлена абстракция? Напишите программу, где вы показываете абстракцию, и такую же программу, но без абстракции.
+
+Answer:
+Абстракция представлена
+классами, интерфейсами, методами
+
+максимальный уровень абстракции у интерфейса.
+
+Абстракция скрывает реализацию и предоставляет удобный и понятные для пользователя интерфейс взаимодействия с объектом.
+
+
+Абстракции раельного мира:
+- Пульт от телевизора.
+- элементы управления автомобилем
+
+
+=============
+What are different ways to create an object in java?
+And what do you understand by object creation in java?
+Where the memory will be allocated when the object is created in java?
+Какие существуют способы создания объектов в Java?
+Как вы понимаете создание объекта в Java? Где будет выделена память для создания объекта?
+
+Answer:
+1. через оператор new и сигнатуру конструктора
+2. метод newinstance
+   NewInstanceExample obj= NewInstanceExample.class.newInstance();   
+3. метод clone
+    здесь
+   а)  клонируемый класс долен имплементировать интерфейс Clonable
+   б)  в клонируемом классе необходимо переопределить метод clone, так как изначально он имеет модификатор доступа - protected 
+       переопределяем и меняем на нужный модификатор   
+
+class Dolly implements Clonable {
+
+@ovveride 
+public Object clone() {
+  return super.clone();
+}
+}	   
+	  
+Main (	  
+Dolly dolly = new Dolly();
+Dolly clonedolly = (Dolly) dolly.clone(); // во время клонирования необходимо делать приведение типа
+)
+
+=============
+
+=============
+
+JVM is compiler in java to run your program, explain steps from writing your code to execute on the machine?
+JVM — это компилятор для запуска ваших программ, опишите этапы, начиная с написания кода, до его выполнения машиной.
+
+Answer:
+Пишется main класс со следующей сигнатурой
+public static void main (String[] args) {
+}
+
+Компилятор(javac.exe, входящий в поставку JDK) ищет эту сигнатуру и преобразует программу(файл .java ) в байт код(файл .class) и передаёт JVM на запуск.
+JVM байт код в машинный(согласно платформе) и запускает на исполнение.
+
+=============
+What is heap memory allocation in java? Explain the difference between stack and heap memory allocation in java?
+Что значит неупорядоченное хранение данных в Java, и в чём отличие от стэка?
+
+Answer:
+
+=============
+How JVM knows about your program and what is the cycle of code execution in java?
+Как JVM понимает вашу программу и каков цикл выполнения кода в java?
+
+Answer:
+
+=============
+Difference between public, private and protected modifiers and explain why do you need all these modifiers in your code?
+Какие различие между модификаторами public, private и protected. Объясните, зачем вам нужны все эти модификаторы в коде?
+
+Answer:
+
+=============
+What will be the result If java set the main method to private?
+Каков будет результат, если в Java установить main метод в private?
+
+Answer:
+code is working successfully at compile time but it will throw an error at the runtime. 
+=============
+What is command line argument and how can you give order to java program to execute a file reading operation by command line argument?
+Что такое аргумент командной строки? Как можно дать команду Java программе, выполнить операцию чтения файла, с помощью аргумента командной строки?
+
+Answer:
+Что  такое аргумент командной строки? Как можно дать команду Java программе, выполнить операцию чтения файла, с помощью аргумента командной строки?
+=============
+Where do you need super constructor and suppose you don’t have super constructor then is there any way to execute superclass constructor, if yes then explain?
+В каком случае вам понадобится супер конструктор? Если у вас нет возможности использовать супер конструктор, есть ли возможность выполнить конструктор супер класса, если да, то объясните как?
+
+Answer:
+
+=============
+The interface is about 100% abstraction, what do you understand by 100% abstraction and how can you achieve 100% abstraction in java? 
+Интерфейс это на 100% абстракция, как вы понимаете 100% абстракцию, и как это реализовать в Java? Напишите программу используя интерфейс и абстрактный класс. Зачем нужен интерфейс, если можно использовать абстрактные классы?
+
+Answer:
+
+=============
+Write the same program from both interface and abstract class, now as you can write the same code with abstract class then why do you need an interface in java?
+
+Answer:
+
+=============
+What is multilevel inheritance in java? And does java support multiple inheritances, explain your thoughts?
+Что такое многоуровневое наследование в Java? Поддерживает ли Java множественное наследование, объясните свои мысли?
+
+Answer:
+
+=============
+Java is object-oriented language, explain both object and oriented word?
+Java является объектно-ориентированным языком, объясните, что это значит?
+
+Answer:
+
+=============
+What do you understand by design patterns in oops, if you have to design your own patterns then what are the parameters you will consider most?
+Как вы понимаете проектирование паттернов в ООП? Если вам нужно создать собственные паттерны, то какие параметры вы будете учитывать?
+
+Answer:
+
+=============
+Write some basic programs like: 
+<1>. Palindrome
+<2>. String reverse
+     Реверс строки
+<3>. Patterns of stars in all possible ways
+     Answer:   https://www.geeksforgeeks.org/programs-printing-pyramid-patterns-python/
+	 
+<4>.Find out minimum and maximum numbers in a given array
+	Найти минимальное и максимальное число в данном массиве
+	
+<5>. You are given city name and person name blank array of fixed-sized, write a program to get the city name of a person.
+ You have to take city name and person name at run time
+     Дан пустой массив, фиксированного размера, с именами городов и людей. Напишите программу, которая достаёт имя города, определённого человека. Вы должны получить имя города и имя человека во время выполнения.
+	 
+<6>. Write matrix multiplication program in java
+	 Напишите программу умножения матриц на Java
+	 
+<7>. How will you break an array in an equal part? Consider all possible cases
+	Как вы разобьёте массив на равные части, рассмотрите все возможные варианты
+	
+<8>. Write a program using switch case where you have to ask day name from the user and then you will print the first three letters of that day in the capital letter as a response to the user
+	Напишите программу, используя switch… case, где пользователь должен выбрать день недели, а затем, программа выдаст первые три буквы этого дня, заглавными, в качестве ответа пользователю.
+	
+<9>. Ask the user to give a string as input then show repeated letters with count as a response
+Напишите программу, в которой пользователь вводит буквы в строку, а ответом будет вывод повторяющихся символов и их количество.
+	
+<10>. Convert any given number into binary format
+	 Преобразуйте любое заданное число в двоичный формат
+	
+<11>. Read context from a file and replace every small letter into capital and every capital letter into the small letter and then print the modified file as the response of program
+	Преобразуйте в файле, каждую строчную букву в заглавную и наоборот, выведите результат.
+	
+<12>. Write a program where the program will ask the user about name, age, address and college name, then you will print the detail in order but if user repeats the same name again then show available data of the user.
+	Напишите программу, в которой пользователь вводит имя, возраст и название колледжа.
+	Результатом будет вывод этих данных с соблюдением порядка. Если пользователь вводит имя повторно, программа выводит подсказку с доступными вариантами.
+
+=============
+What do you understand by the break and continue keyword in an iteration?
+Как вы понимаете операторы break и continue в итерации?
+
+Answer:
+=============
+Write all possible syntax of for loop?
+ Напишите все возможные варианты синтаксиса для цикла for?
+Answer:
+
+=============
+What is the difference between while and for loop? And explain the cases where which one suits better?
+ В чем разница между циклами while и for? И объясните, в каких случаях, какой из них лучше применять?
+ 
+Answer:
+
+=============
+What do you understand by variable scope? Is it required to initialize the local variable explain why so?
+Как вы понимаете область видимости переменной? Требуется ли инициализировать локальную переменную, объясните почему?
+Answer:
+
+=============
+What is an interpreter in java? And the difference between compilation and interpretation in java?
+Что такое интерпретатор в Java? В чём разница между компиляцией и интерпретацией в Java?
+Answer:
+
+=============
+What do you get by mean of return type in java? And suppose you have to return int data but return type of method is double, explain will it work or not?
+Что значит возвращаемый тип данных в Java? Предположим, что вам нужно вернуть int данные, но тип возвращаемого метода double, объясните, будет ли это работать или нет?
+
+Answer:
+
+=============
+Whether you can override superclass methods or variables? Explain it?
+Можно ли переопределить методы или переменные суперкласса? Объясните свой ответ.
+Answer:
+
+=============
+What is object chaining in java?
+Что такое цепочка объектов в Java?
+
+Answer:
+Есть понятие Method chaining in Java  (про bject chaining пока не нашёл, возможно цепочка наследований)
+цепочка методов - когда несколько методов вызываются один за другим.
+
+Person person = new Person();
+      // Output: Hello, my name is Peter and I am 21 years old.
+      person.setName("Peter")
+            .setAge(21)
+            .introduce(); // Вызываем методы цепочкой (Method chaining)
+			
+=============
+Difference between parameters and arguments in java?
+Объясните разницу между параметрами и аргументами в Java?
+Answer:
+
+=============
+Write a singleton class in java? And where, why you will prefer singleton in any case?
+Опишите класс Singleton в Java. Где и почему вы будете использовать Singleton?
+Answer:
+
+
+=============
+As java have multi-threaded programming nature, first explain what is it? Then :
+ <1>.Why do you need it?
+ <2>.Explain and write every possible case to create a thread in java? 
+ <3>What is thread sleeping mean in java?
+ <4>.Suppose you have two different files at any location then write a program with two threads where every single thread will read and print single file but both will do the operation at the same time. So file 1 will be read by thread 1 and file 2 will be read by thread 2. 
+ <5>. Explain thread architecture in java? 
+ <6>. What is thread pooling in java?
+ <7>. Read some basic function related to multithreading in java.
+ 
+Answer:
+
+============= 
+Whether java is procedural language or functional language explain it?
+
+Answer:
+
+=============
+What are the parameters that make java different from other language give some practical examples where java suits better than any other language?
+
+Answer:
+
+=============
+Why exception handling is introduced in java? List down all the causes behind this?
+
+Answer:
+
+=============
+Let's consider java is not having error handling mechanism then write a function where you need to handle ArrayIndexOutOfBoundException yourself.
+Давайте представим, что Java не имеет механизма обработки ошибок. Напишите функцию, где вам нужно обрабатывать ArrayIndexOutOfBoundException.
+Answer:
+
+=============
+Difference between try, catch and finally?
+Объясните разницу между try, catch и finally?
+
+Answer:
+
+=============
+Consider your body as a task and then design every body part as per oops concept. (think as per your convenience).
+Try to relate every oop concept from your surrounding.
+Представьте своё тело как «задачу», спроектируйте каждую часть тела согласно концепции ООП.
+Попытайтесь связать каждую концепцию ООП с тем, что вас окружает.
+
+Answer:
+
+=============
+
+==============================================================================
+==============================================================================
+==============================================================================
+==============================================================================
+==============================================================================
+==============================================================================
+
+https://jsehelper.blogspot.com/2016/01/java-core-1.html
+https://jsehelper.blogspot.com/2016/01/java-core-2.html
+https://jsehelper.blogspot.com/2016/01/java-core-3.html
+https://jsehelper.blogspot.com/2016/12/java-core-4.html
+
