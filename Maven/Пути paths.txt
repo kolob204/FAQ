@@ -1,0 +1,9 @@
+
+${project.basedir} - корневая папка
+
+${project.build.directory} - путь к папке target в проекте
+
+
+${project.build.sourceDirectory}       src/main/java     folder
+
+${project.build.testSourceDirectory}   src/test/java     folder.

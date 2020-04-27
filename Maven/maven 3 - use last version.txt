@@ -2,7 +2,7 @@
 run Maven project with GOAL
 clean versions:use-latest-releases
 
-
+OR use
 
 		 <build>
 			.......

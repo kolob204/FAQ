@@ -5,6 +5,10 @@ WebElement elem = driver.findElement(By.xpath("element_xpath"));
 JavascriptExecutor executor = (JavascriptExecutor)driver;
 executor.executeScript("arguments[0].click();", elem);
 
+document.getElementById('checkmessages').click();
+
+document.querySelector('#checkmessages').click();   //  #  = id 
+
 
 =======================================================================================
 Получение элемента
@@ -14,3 +18,9 @@ document.getElementById('converted-checklist_dorr_c');
 
 document.body.contains(document.getElementById('converted-checklist_dorr_c'));
 
+=======================================================================================
+Распространнённая ошибка
+
+  javascript error: Cannot read property 'click' of null
+ 
+=======================================================================================

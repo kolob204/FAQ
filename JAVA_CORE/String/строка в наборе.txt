@@ -1,0 +1,31 @@
+Arrays.asList(yourArray).contains(yourValue)
+
+============================================================
+String[] selectFields = { "str1", "str2", "str3" };
+
+if (Arrays.stream(selectFields).anyMatch("someStringToCompare"::equals)) {
+  .................
+}
+
+============================================================
+
+Создание надора строк
+
+List<String> signs = new ArrayList<String>();
+signs.add("B001");signs.add("B004");signs.add("B011");signs.add("B016");
+		   
+Log.info(" Сравниваем Список содержимое набора с какой то строкой");
+if (    signs.contains(textCode1.getText()) && 
+	  signs.contains(textCode2.getText()) && 
+	  signs.contains(textCode3.getText()) && 
+	  signs.contains(textCode4.getText())
+ )  
+ 
+============================================================
+Как сделать наоборот, спросить у компилятора:
+Входит ли эта строка в набор? По подобию как в SQL
+var IN ['str1','str2','str3']
+
+
+
+============================================================

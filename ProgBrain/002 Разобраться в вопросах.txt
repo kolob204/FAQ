@@ -7,7 +7,20 @@
 сделать решение более гибким.
 
 
+Например в регрес тестах изменить метод
+	public OrderPKO checkData(Map<String, String> params) {
+		// Получаем набор элементов
+		Set<Entry<String, String>> set = params.entrySet();
+		for (Entry<String, String> element : set) {
+			$(By.xpath(element.getKey()))
+					.shouldHave(Condition.matchesText(element.getValue()));
+		}
+		return orderPKO;
 
+	}
+
+	вынести его в repeated код и возвращать нужное значение, в зависимости от того
+	где он будет вызываться, чтобы использовать этот метод в любых из цепочек методов.
 =====================================================================
 
 

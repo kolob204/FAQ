@@ -1,26 +1,91 @@
 Опции браузера
+http://www.assertselenium.com/java/list-of-chrome-driver-command-line-arguments/
 
 1 вариант
 
-DesiredCapabilities capabilities = new DesiredCapabilities();
-ChromeOptions options = new ChromeOptions();
+Создаётся класс
 
-a)
-capabilities.setCapability("enableVNC", true);
-Configuration.browserCapabilities = capabilities;
+public class MyWebDriverProvider implements WebDriverProvider {
 
-b)
-options.addArguments(“start-maximized”);
-capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+	@Override
+	public ChromeDriver createDriver(DesiredCapabilities capabilities) {
+
+		capabilities = new DesiredCapabilities("chrome", "", Platform.ANY);
+
+		ChromeOptions options = new ChromeOptions();
+		// options.addArguments("--headless");
+		// options.setHeadless(true);
+		options.addArguments("--disable-gpu");
+		options.addArguments("--disable-application-cache");
+		options.addArguments("--disable-extensions");
+		options.addArguments("--window-size=1920,1080");
+		options.addArguments("--start-maximized");
+		options.addArguments("--disable-accelerated-2d-canvas");
+		options.addArguments("--disable-accelerated-jpeg-decoding");
+		options.addArguments("--disable-accelerated-mjpeg-decode");
+		options.addArguments("--disable-accelerated-video-decode");
+		options.addArguments("--log-level=0");
+
+		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		options.merge(capabilities); // desiredCapabilities.chrome()
+		// ChromeDriver driver = new ChromeDriver(desiredCapabilities);
+
+		// Configuration.browserCapabilities = desiredCapabilities;
+		ChromeDriver driver = new ChromeDriver(options);
+		return driver;
+	}
+	
+}
+
+//в базовом классе тестов
+
+public class BaseTest {
+
+@BeforeSuite
+	public void setUp() {
+
+		BasicConfigurator.configure();
+		System.setProperty("log4j.configurationFile", "Log4j.properties");
+
+		System.setProperty("webdriver.chrome.driver", "../chromedriver/chromedriver_80.exe");
+		System.setProperty("selenide.browser", "chrome");
+		System.setProperty("webdriver.chrome.silentOutput", "true"); // THIS will surpress all logs expect INFO
+
+		Configuration.baseUrl = "http://test.suitecrm.transcapital.com:8888";
+
+		Configuration.browser = MyWebDriverProvider.class.getName();
+
+		Selenide.clearBrowserCookies();
+
+		open("/");
+		
+		js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
+		WebDriverRunner.addListener(new EventListener());
+		
+}
 
 =====
 
-2 вариант (есть несколько готовых опций, через Configuration)
-Configuration.browser = "chrome";
-Configuration.browserSize = "1920x1080";
-Configurations.startmaximized=true;
-Configuration.proxyEnabled = false;
+2 вариант (setDriver)
 
+	@BeforeSuite
+	public void setUp() {
+
+		System.setProperty("webdriver.chrome.driver", "../chromedriver/chromedriver_80.exe");
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-cache");
+		options.addArguments("--disk-cache-dir=null");
+		options.addArguments("--media-cache-dir=null");
+
+		WebDriverRunner.setWebDriver(new ChromeDriver(options));
+		WebDriverRunner.addListener(new EventListener());
+	}
+
+	@AfterSuite
+	public void tearDown() {
+		WebDriverRunner.closeWebDriver();
+	}
 
 ============================================================================================
 

@@ -12,6 +12,7 @@ Maven - > User SETTINGS
 После того как файл заполнен
 нажать там же UPDATE SETTINGS
 
+Содержимое файла конфигурации:
 
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -45,8 +46,19 @@ Maven - > User SETTINGS
 
 
 
-  <profiles/>
-  <activeProfiles/>
+      <profiles>
+        <profile>
+            <id>downloadSources</id>
+            <properties>
+                <downloadSources>true</downloadSources>
+                <downloadJavadocs>true</downloadJavadocs>
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>downloadSources</activeProfile>
+    </activeProfiles>
 </settings>
 
 ================================================

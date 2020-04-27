@@ -278,14 +278,36 @@ public class RegresTest04 {
 ========
 Решение
 
+Рекомендуют игнорировать это предупреждение
 
+для его отключения можно использовать следующую рекомендацию
+
+You can create a file resources/META-INF/aop.xml with the following context that will turn off all warnings:
+
+<aspectj>
+    <weaver options="-nowarn"/>
+</aspectj>
+
+или можно попробовать так
+<aspectj>
+    <weaver options="-nowarn"/>
+    <weaver options="-Xset:weaveJavaxPackages=true"/>    
+</aspectj>
 ======================================
 ======================================
 Действие
 
+Поставил флаш - запустить проект со всеми последними версиями библиотек.
+скачался новый СЕЛЕНИДЕ 5.11 и прочее
+но проект больше не стартанул
+
 ========
 Ошибка
  
+ [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project trytosolve: Compilation failure
+[ERROR] /C:/Users/frolov_vi/Documents/temp/sel_try_to_solve/src/main/java/MyUtilites/RepeatedCode.java:[29,29] cannot access org.openqa.selenium.internal.WrapsElement
+[ERROR]   class file for org.openqa.selenium.internal.WrapsElement not found
+[ERROR] -> [Help 1]
 
 
 ========
