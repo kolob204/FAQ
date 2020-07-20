@@ -18,3 +18,33 @@ github.com/qa-dev/jsonwire-grid
 
 ====================================================================
 
+ќпределение параметров  в XML файле TESTNG
+определ€ет параллельность запуска
+
+
+parallel="none"
+parallel="methods"
+parallel="tests"
+thread-count="3" - количество потоков
+
+
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="RegresTests" verbose="1" parallel="tests" thread-count="3">
+
+    <test name="Test8" parallel="methods" thread-count="3" >
+        <classes>              
+            <class name="tests.Test003" />
+            <class name="tests.Test005" />
+            <class name="tests.Test006" />
+            <class name="tests.Test007" />
+            <class name="tests.Test008" />  
+        </classes>
+    </test>
+
+</suite>
+
+
+
+====================================================================

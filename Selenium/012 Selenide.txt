@@ -1,4 +1,4 @@
-Опции браузера
+ браузера
 http://www.assertselenium.com/java/list-of-chrome-driver-command-line-arguments/
 
 1 вариант
@@ -58,8 +58,7 @@ public class BaseTest {
 		Selenide.clearBrowserCookies();
 
 		open("/");
-		
-		js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
+ 
 		WebDriverRunner.addListener(new EventListener());
 		
 }
@@ -87,6 +86,50 @@ public class BaseTest {
 		WebDriverRunner.closeWebDriver();
 	}
 
+
+
+
+============================================================================================
+Configuration
+
+//Configuration.browserSize = "1920x1080"; // у  меня не работало
+использовал вместо этого
+options.addArguments("--window-size=1920,1080");
+
+
+
+============================================================================================
+
+
+    <dependency>
+	    <groupId>io.github.bonigarcia</groupId>
+	    <artifactId>webdrivermanager</artifactId>
+	    <version>3.8.1</version>
+    </dependency>
+	
+	
+В Инициализации , вместо System.setProperty("webdriver.chrome.driver","../chromedriver/chromedriver_80.exe");
+пишем
+
+WebDriverManager.chromedriver().setup();
+System.setProperty("webdriver.chrome.driver", WebDriverManager.chromedriver().getBinaryPath());
+
+
+для прокси варианта
+
+WebDriverManager.chromedriver().proxy("Login:Pass@LocalProxy.com:PORT")
+					.setup();
+					
+============================================================================================
+Настройка скачивания файлов через прокси
+
+ Configuration.fileDownload = FileDownloadMode.PROXY;
+ Configuration.proxyEnabled = true;
+ Configuration.proxyHost = "vip-ws-wcg.transcapital.com";
+ Configuration.proxyPort = 8080;
+ 
+Не работает с автоматическим скачиванием WebDriver через прокси.
+ 
 ============================================================================================
 
 Работа с элементами
@@ -96,6 +139,9 @@ $(By.id("inn_c")).getText()
 
 Текст из INPUT поля
 $(By.id("inn_c")).getAttribute("value");
+
+Поиск элемента в динамическом положении ( просто указываем два слеша //*  )
+if ($(By.xpath("//table[@summary='Действия']//*[@title='Выполняется']")).isDisplayed())
 ============================================================================================
 SELECT
 $(By.id("sic_code")).selectOption(1);
@@ -106,6 +152,133 @@ Get current Url
 currentUrl=WebDriverRunner.currentFrameUrl();
 
 ============================================================================================
+by css Selector
+
+by attribute
+$(By.cssSelector("a[data-tabindex='tabScreen1']")).click();
+
+============================================================================================
+xpath multiple condition
+xpath несколько аттрибутов
+xpath по нескольким аттрибутам
+
+$(By.xpath("//input[@type='checkbox' and @aria-label='Напомнить']"))
+
+$(By.xpath("//*[@title='Закрыть' and @aria-label='Закрыть']")).click();
 
 
 ============================================================================================
+attribute
+if ($(By.xpath("//table[@summary='Третье лицо']/tbody/tr[2]/td[3]")).getAttribute("value").equals(""))
+
+проверка на содержимое аттрибута
+$(By.xpath("//table[@summary='Телефон']/tbody//tr/td[4]")).shouldHave(Condition.attribute("title", "+7"));
+
+===========================================================================================
+Scroll scroll скроллинг
+
+1 вариант (в конец страницы)
+Selenide.actions().sendKeys(Keys.TAB).build().perform();
+Selenide.actions().sendKeys(Keys.END).build().perform();
+
+Или через Robot
+Robot robot = new Robot();
+robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+
+
+2 вариант JS
+(в конец страницы)
+Selenide.executeJavaScript("window.scrollTo(0,Math.max(document.documentElement.scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");
+
+Вниз scroll down
+Selenide.executeJavaScript("scroll(0, 250)"); //down
+
+Вверх scroll up
+Selenide.executeJavaScript("scroll(450, 0)"); //UP
+
+===========================================================================================
+JS   Javascript
+
+get value from INPUT  /  get TEXT from INPUT   /
+
+String valueInInputString = Selenide
+				.executeJavaScript("return document.querySelector(\"[name='s_1_1_15_0']\").value").toString();
+				
+goBack 	History back
+на предыдущую страницу
+
+Selenide.executeJavaScript("window.history.go(-1)");
+
+===========================================================================================
+Поиск элемента со сходими названиями, но некоторыми отличающимися параметрами
+фильтрация элементов
+
+$(By.xpath("//*[@title='Отмена' and @aria-label='Отмена' and not(@disabled)]")).click();
+
+===========================================================================================
+
+try catch block
+
+catch (com.codeborne.selenide.ex.ElementNotFound e)
+} catch (com.codeborne.selenide.ex.ElementIsNotClickableException e) {
+} catch (com.codeborne.selenide.ex.InvalidStateException e) {
+} catch (com.codeborne.selenide.ex.ElementShould e) {
+} catch (com.codeborne.selenide.ex.TextsMismatch e) {
+
+
+===========================================================================================
+Поиск нескольких элементов и их обработка
+Search several elements
+
+
+List<SelenideElement> listOfElements;
+
+listOfElements = $(By.xpath(".//table[@summary='Добавление договоров']"))
+				.$$(By.xpath(".//tbody//tr[position()>1]/td[2]"));
+
+for (SelenideElement item : listOfElements) {
+
+	Log.info(item.getAttribute("title"));
+}
+
+***
+
+
+***
+
+
+***
+
+
+***
+
+
+===========================================================================================
+
+Поиск по тексту (полное совпадение)
+//a[text()='.....'] / 
+
+
+$(By.xpath("//a[contains(@data-tabindex,'tabScreen') and text()='" + nameOfMenu + "']"))
+					.waitUntil(Condition.visible, 25000);
+
+$(By.xpath("//a[contains(@data-tabindex,'tabScreen') and text()='" + nameOfMenu + "']")).click();
+
+
+Вариант с частичным совпадением
+//a[contains(.,'.....'] / 
+
+$(By.xpath("//a[contains(@data-tabindex,'tabScreen') and contains(.,'" + nameOfMenu + "')]"))
+			.waitUntil(Condition.visible, 25000);
+
+$(By.xpath("//a[contains(@data-tabindex,'tabScreen') and contains(.,'" + nameOfMenu + "')]")).click();
+
+===========================================================================================
+
+
+===========================================================================================
+
+
+
+===========================================================================================

@@ -6,15 +6,35 @@
 
 -XX:+UseStringDeduplication
 Enables the String Deduplication feature within G1
+
 -XX:+AggressiveOpts
 Enables the use of aggressive performance optimization features
+
 -Xss2m
 is used to limit how much memory a stack consumes
+
 -Xmn512m
 the size of the heap for the young generation
+
 -Xms1024m
 this is initial Java Heap size
+
 -Xmx3024m
 this is maximum Java Heap size
+
+===========================================
+Сеть
+
+Предпочтение соединениям по IPv4
+-Djava.net.preferIPv4Stack=true
+
+Прокси
+-Djava.net.useSystemProxies=true
+-Dorg.eclipse.ecf.provider.filetransfer.excludeContributors=org.eclipse.ecf.provider.filetransfer.httpclient
+-Dhttp.proxyHost=lanProxyAdress
+-Dhttp.proxyPort=8080
+-Dhttp.proxyUser=frolov_vi
+-Dhttp.proxyPassword=......
+-Dhttp.nonProxyHosts=*tkbbank.ru|*tkbbank.com|*.transcapital.ru|*.transcapital.com|10*|*gmail.com
 
 ===========================================

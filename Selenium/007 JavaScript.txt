@@ -6,11 +6,31 @@ JavascriptExecutor executor = (JavascriptExecutor)driver;
 executor.executeScript("arguments[0].click();", elem);
 
 document.getElementById('checkmessages').click();
+document.getElementsByName(name) возвращает элементы с заданным атрибутом name. Очень редко используется.
+
 
 document.querySelector('#checkmessages').click();   //  #  = id 
 
+byClass Name (если название class включает в себя несколько классов, то записывается так:
+document.querySelector(".siebui-ctrl-pick.siebui-input-popup.siebui-align-left.siebui-input-align-left.s_1_1_15_0").value;	
+
+
+По аттрибуту (by attribute)
+document.querySelector("[name='s_1_1_15_0']").value;
+
+document.querySelectorAll('ul > li:last-child');
+
+Псевдоклассы в CSS-селекторе, в частности :hover и :active, также поддерживаются. 
+Например,
+document.querySelectorAll(':hover')
+вернёт коллекцию (в порядке вложенности: от внешнего к внутреннему) из текущих элементов под курсором мыши.
 
 =======================================================================================
+History back
+
+Selenide.executeJavaScript("window.history.go(-1)");
+=======================================================================================
+
 Получение элемента
 document.getElementById('converted-checklist_dorr_c');
 

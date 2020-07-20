@@ -1,16 +1,41 @@
 ChromeOptions options = new ChromeOptions();
 
-	options.addArguments("enable-automation");
-	options.addArguments("--headless");
-	options.addArguments("--window-size=1920,1080");
-	options.addArguments("--no-sandbox");
-	options.addArguments("--disable-extensions");
-	options.addArguments("--dns-prefetch-disable");
-	options.addArguments("--disable-gpu");
-	options.addArguments("--disable-browser-side-navigation");	
-	options.addArguments("disable-features=NetworkService");
-	options.addArguments("--force-device-scale-factor=1");
-	options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+		options.addArguments("--window-size=1920,1080");
+		options.addArguments("--start-maximized");
+
+		options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+		options.addArguments("--log-level=0");
+
+		options.addArguments("--headless");
+		// or  options.setHeadless(true);
+		
+		options.addArguments("--disable-gpu");
+		options.addArguments("--disable-gpu-early-init");
+		options.addArguments("--disable-gpu-program-cache");
+		options.addArguments("--disable-accelerated-2d-canvas");
+		options.addArguments("--disable-accelerated-jpeg-decoding");
+		options.addArguments("--disable-accelerated-mjpeg-decode");
+		options.addArguments("--disable-accelerated-video-decode");
+		
+		options.addArguments("--no-sandbox");
+		
+		options.addArguments("--dns-prefetch-disable");
+
+		options.addArguments("--disable-cache");		
+		options.addArguments("--disk-cache-size=1");
+		options.addArguments("--media-cache-size=1");
+		options.addArguments("--disk-cache-dir=null");
+		options.addArguments("--media-cache-dir=null");
+
+		options.addArguments("--disable-application-cache");
+		options.addArguments("--disable-offline-load-stale-cache");
+		options.addArguments("--aggressi1ve-cache-discard");
+		options.addArguments("--v8-cache-options=\"off\"");
+		options.addArguments("--v8-cache-strategies-for-cache-storage=\"off\"");
+
+		options.addArguments("--disable-extensions");
+		options.addArguments("--disable-browser-side-navigation");
+		
 
 this.driver = new ChromeDriver(options);	
 	
@@ -19,6 +44,8 @@ this.driver = new ChromeDriver(options);
 http://www.assertselenium.com/java/list-of-chrome-driver-command-line-arguments/
 
 ===============================================
+
+
 If your website is https, and having trouble with chromedriver on timedout issue, use
 
 option.addArguments("enable-features=NetworkServiceInProcess")

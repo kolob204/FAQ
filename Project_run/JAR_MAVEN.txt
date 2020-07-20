@@ -1,0 +1,22 @@
+
+Компилируем JAR файл с интерфейсом, который позволяет запускать другой проект с определёнными настройками, через
+запуск командной строки MAVEN
+Мы передаём параметры в коммандную строку и MAVEN собирает по ним проект и запускает
+
+
+		Runtime rt = Runtime.getRuntime();
+
+		//описываем командную строку с параметрами
+		String runString = "cmd /c start cmd.exe /K \"" + projectLocation
+				+ "\\maven\\bin\\mvn.cmd clean test -DTestNGFile="
+				+ listOfTests
+				+ " -Dallurepath=" + curtime
+				+ " -f \"" + projectLocation + "\\selenide\\pom.xml\"" + ">>" + LOGFILE + " & "
+				+ "start notepad " + LOGFILE + " & "
+				+ projectLocation + "\\allure\\bin\\allure.bat serve "
+				+ projectLocation + "\\selenide\\allure-results\\"
+				+ curtime + " & exit \"";
+
+		System.out.println(runString); // Смотрим какая строка запуска получается
+
+		Process pr = rt.exec(runString); 

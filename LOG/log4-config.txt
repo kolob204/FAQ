@@ -1,0 +1,96 @@
+Подключение библотек
+
+		 <!-- log4j Loggger -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        
+	   <dependency>
+	       <groupId>org.slf4j</groupId>
+	       <artifactId>slf4j-api</artifactId>
+	       <version>1.7.30</version>
+	   </dependency>
+	   
+	   
+	    <dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-log4j12</artifactId>
+	        <version>1.7.30</version>
+        </dependency>
+     
+
+===============================================================
+Настройка конфига
+
+можно в файле 
+log4j.properties
+
+
+# Root logger option
+#log4j.rootLogger=INFO
+
+# Уровень логирования
+log4j.logger.appLogger= INFO, console, file
+#log4j.logger.appLogger.additivity = false
+log4j.additivity.appLogger = false
+
+#log4j.fLogger=INFO, console, file - Логгер который вызывается в конструкторе с именем класса
+
+
+# Апендер для работы с файлами
+log4j.appender.file=org.apache.log4j.RollingFileAppender
+log4j.appender.file.Threshold=INFO
+# Путь где будет создаваться лог файл
+#log4j.appender.file.File=src/main/logs/log_file.log
+log4j.appender.file.File=.\\LOGS\\log.log
+#log4j.appender.file.File=log.log
+#/home/savva/log_file.log
+#log4j.appender.file.RollingPolicy.DatePattern='.'yyyy-MM-dd-HH-mm       
+#log4j.appender.file.RollingPolicy.FileNamePattern=%d{yyyy-MM-dd-HH-mm}
+# Конфигурируем шаблон вывода логов в файл
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+log4j.appender.file.RollingPolicy.FileNamePattern=%d{yyyy-MM-dd}.log
+
+# Указываем максимальный размер файла с логами
+log4j.appender.file.MaxFileSize=3MB
+
+# Апендер для работы с консолью 2
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.target=System.out
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+#log4j.appender.stdout.layout.conversionPattern=%d{ABSOLUTE} %5p %t %c{1}:%M:%L - %m%n
+log4j.appender.console.layout.conversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+
+
+
+FileNamePattern  не отрабатывал у меня через этот файл настроек
+в инете нашёл информацию, что эта настройка цепляется только когда конфигурационный файл в формате XML
+
+надо будет попробовать
+
+
+а можно 
+log4j.xml
+
+
+
+
+===============================================================
+
+Класс ЛОГа
+
+public class Log extends ExitCodeListener {
+
+	private static final Logger Log = Logger.getLogger("appLogger");
+
+	.......
+}
+
+===============================================================
+
+
+
+===============================================================

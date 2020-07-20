@@ -1,0 +1,22 @@
+
+==================================================
+
+Способ 
+
+String projectLocation = new File(Main.class.getProtectionDomain().getCodeSource().getLocation()
+				.toURI()).getAbsolutePath();
+				
+При запуске JAR файла , в переменной будет хранится весь пусть, вместе с именем файла
+
+Можно обработать вот так (оставив только путь)
+
+projectLocation = projectLocation.substring(0, projectLocation.lastIndexOf("\\"));
+
+==================================================				
+
+
+
+==================================================
+
+
+==================================================

@@ -28,3 +28,23 @@ System.setProperty("webdriver.chrome.silentOutput", "true"); //THIS will surpres
 java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF); // this could be used to stop INFO logging in chrome driver 
 
 ================================================================
+ALLURE генерация отчётов, при запуске проектов черех MAVEN (самый распространнёные примеры, отработанные и рабочие)
+ 
+
+================================================================
+
+Для того, чтобы генерировались отчёты ALLURE при запуске проекта черех JAR
+а не через MAVEN
+есть рекомендация
+
+https://automated-testing.info/t/generacziya-reporta-allure-dlya-non-maven-proekta/15187/6
+со ссылкой на https://github.com/eroshenkoam/allure-testjar-sample
+
+
+нужно
+1) скопировать в удобное место библиотеку aspectjweaver
+2) запускать JAR через командную строку, с параметром
+
+java -javaagent:aspectjweaver.jar -jar mavenAndJavaFx.jar
+
+================================================================

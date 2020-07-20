@@ -48,15 +48,134 @@ projectLocation 					- указывается полный путь до пап�
 
 ===============================================================
 
+Обновлённая версия БАТНИКа для запуска
+каждый отдельный запуск тестов складывает результаты отчётов в отдельную папку. здесь она задаётся переменной - %stamp%
 
+Предварительно удаляются старые отчёты, чтобы не копились.
+
+
+taskkill /F /IM chromedriver*
+
+start cmd /k Call DeleteOldLogs.bat
+
+
+set Date=%DATE:/=_%
+if "%time:~0,1%" == " " (set Hr=0%time:~1,1%) ELSE set Hr=%time:~0,2%
+set Min=%TIME:~3,2%
+set Sec=%TIME:~6,2%
+
+SET stamp=%Date%_%Hr%-%Min%-%Sec%
+ 
+cls
+cd selenide\allure-results
+mkdir %stamp% 
+cd ..
+ 
+
+@Echo off
+SET LOGFILE=..\LOGS\%stamp%.log
+call :Logit >> %LOGFILE%
+exit /b 0
+:Logit
+
+set projectLocation=%cd%
+set log4j=%projectLocation%\src\main\resources\log4j.properties
+cd %projectLocation%
+
+set classpath=%projectLocation%\target\classes;%projectLocation%\lib\*
+ 
+
+%projectLocation%\..\maven\bin\mvn clean test -DTestNGFile=Test003.xml -Dallurepath=%stamp% & start notepad %LOGFILE%& %projectLocation%\..\allure\bin\allure serve %projectLocation%\allure-results\%stamp%
 
 ===============================================================
+Содержимое DeleteOldLogs.bat
 
+@ECHO OFF
 
+setlocal enableDelayedExpansion
 
+Set Location=LOGS\
+Set PatternName=*.log
+for /f "delims=" %%F in ('Where /R %Location% /F %PatternName%') do (
+    set x=%%~nxF
+    set y=!x:~0,2!
+    set /a  y += 1
+ 
+    if %DATE:~0,2% gtr !y! del /F - %%F
+) 
+
+Set Location=%cd%\selenide\allure-results
+for /f "delims=" %%F in ('dir /B %Location%') do (
+    set x=%%~nxF
+    set y=!x:~0,2!
+    set /a  y += 1
+ 
+    if %DATE:~0,2% gtr !y! rd /S /Q - %cd%\selenide\allure-results\%%F
+) 
+
+exit
 
 ===============================================================
+Перечисление файлов классов
 
+static TestNG testng;
 
+Class[] listOfTests = new Class[] {test1.class, test2.class};  //Статический массив
+testng.setTestClasses(listOfTests);
 
+testng.run();
+		
 ===============================================================
+
+Для запуска же в JAR файле
+используется такая инициализация
+здесь: на созданном интерфейсе JavaFX отмечаются checkBox нужных для выполнения тестов
+и этот список формируется и заносится в стартер тестов.
+
+	static TestNG testng;
+	
+		testng = new TestNG();
+		
+		List<String> suites = new ArrayList<String>();
+
+		//в этом примере - в интерфейсе определяем, какие CHECKBOX отмечены - Nе тесты и запускаем
+		for (Node node : anchor.getChildren()) {
+			if (node instanceof CheckBox) {
+				CheckBox ch = (CheckBox) node;
+				if (ch.isSelected()) {
+					suites.add(System.getProperty("user.dir") + "/" + ch.getId() + ".xml");
+				}
+			}
+		}
+		
+		
+		//а завизимые тесты можно исключить таким способом
+		
+		if (suites.contains(System.getProperty("user.dir") + "\\Test008.xml")) {
+			suites.remove(System.getProperty("user.dir") + "\\Test007.xml");
+			suites.remove(System.getProperty("user.dir") + "\\Test006.xml");
+			suites.remove(System.getProperty("user.dir") + "\\Test005.xml");
+			suites.remove(System.getProperty("user.dir") + "\\Test003.xml");
+		} else if (suites.contains(System.getProperty("user.dir") + "\\Test007.xml")) {
+			suites.remove(System.getProperty("user.dir") + "\\Test006.xml");
+			suites.remove(System.getProperty("user.dir") + "\\Test005.xml");
+			suites.remove(System.getProperty("user.dir") + "\\Test003.xml");
+		} else if (suites.contains(System.getProperty("user.dir") + "\\Test006.xml")) {
+			suites.remove(System.getProperty("user.dir") + "\\Test005.xml");
+			suites.remove(System.getProperty("user.dir") + "\\Test003.xml");
+		} else if (suites.contains(System.getProperty("user.dir") + "\\Test006.xml")) {
+			suites.remove(System.getProperty("user.dir") + "\\Test003.xml");
+		}
+
+		if (suites.contains(System.getProperty("user.dir") + "\\Test016.xml")) {
+			suites.remove(System.getProperty("user.dir") + "\\Test015.xml");
+		}
+
+
+
+		testng.setTestSuites(suites);
+		testng.run();
+
+		
+===============================================================
+

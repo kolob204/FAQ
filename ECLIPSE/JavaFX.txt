@@ -1,0 +1,17 @@
+install links
+
+http://download.eclipse.org/efxclipse/updates-released/3.6.0/site
+
+
+
+SDK for JavaFX
+http://download2.gluonhq.com/scenebuilder/8.5.0/install/windows/x64/SceneBuilder-8.5.0.exe
+https://download2.gluonhq.com/openjfx/11.0.2/openjfx-11.0.2_windows-x64_bin-sdk.zip
+
+
+
+
+JavaFX Scene Builder 
+https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html
+
+

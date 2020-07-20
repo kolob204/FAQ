@@ -1,0 +1,91 @@
+	public void runTests(ActionEvent event) throws IOException, URISyntaxException {
+
+		runnerThread = new Thread("TestRunner-Thread") {
+			@Override
+			public void run() {
+				try {
+
+					System.out.println("Starting Tests...");
+
+					Calendar calendar = Calendar.getInstance();
+
+					Date date = calendar.getTime();
+					DateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy_hh.mm");
+
+					dateForReports = DATE_FORMAT.format(date);
+					System.out.println(dateForReports); //DEBUG
+
+					System.setProperty("allure.results.directory", "allure-results/" + Controller.dateForReports);
+
+					System.out.println(
+							"GET PROPERTY allure.results.directory: " + System.getProperty("allure.results.directory"));
+					System.setProperty("selenide.reports", "allure-results/" + Controller.dateForReports);
+
+					testng = new TestNG();
+
+					List<String> suites = new ArrayList<String>();
+
+					for (Node node : anchor.getChildren()) {
+						if (node instanceof CheckBox) {
+							CheckBox ch = (CheckBox) node;
+							if (ch.isSelected()) {
+								suites.add(System.getProperty("user.dir") + "\\TestNgXml\\" + ch.getId() + ".xml");
+								//sb.append("," + ch.getId() + ".xml");
+							}
+						}
+					}
+
+					if (suites.contains(System.getProperty("user.dir") + "\\TestNgXml\\Test008.xml")) {
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test007.xml");
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test006.xml");
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test005.xml");
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test003.xml");
+					} else if (suites.contains(System.getProperty("user.dir") + "\\TestNgXml\\Test007.xml")) {
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test006.xml");
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\est005.xml");
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test003.xml");
+					} else if (suites.contains(System.getProperty("user.dir") + "\\TestNgXml\\Test006.xml")) {
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test005.xml");
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test003.xml");
+					} else if (suites.contains(System.getProperty("user.dir") + "\\Test006.xml")) {
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test003.xml");
+					}
+
+					if (suites.contains(System.getProperty("user.dir") + "\\TestNgXml\\Test016.xml")) {
+						suites.remove(System.getProperty("user.dir") + "\\TestNgXml\\Test015.xml");
+					}
+
+					for (Node node : anchor2.getChildren()) {
+						if (node instanceof CheckBox) {
+							CheckBox ch = (CheckBox) node;
+							if (ch.isSelected()) {
+								suites.add(System.getProperty("user.dir") + "\\TestNgXml\\" + ch.getId() + ".xml");
+							}
+						}
+					}
+
+					//DEBUG
+					System.out.println("Конфигурационные файлы, которые будут запущены: ");
+					for (String s : suites) {
+						System.out.println(s);
+					}
+
+					testng.setTestSuites(suites);
+
+					JOptionPane.showMessageDialog(frameOnTop,
+							"Тесты запущены. Нажмите ОК. И дождитесь уведомления об окончании тестов.", "Старт",
+							JOptionPane.INFORMATION_MESSAGE);
+
+				} catch (Exception e) {
+					System.out.println("Exception: " + e);
+				} finally {
+					// always return control to UI
+					runnerThread = null;
+					System.gc();
+				}
+			}
+
+		};
+
+		runnerThread.start();
+	}

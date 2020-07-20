@@ -1,31 +1,15 @@
+http://testng.org/doc/documentation-main.html#testng-xml 8
+By default, TestNG will run your tests in the order they are found in the XML file.
+
+ If you want the classes and methods listed in this file to be run in an unpredictible order, set the preserve-order attribute to false
+ 
+ То есть, чтобы тесты выполнялись в том порядке, в котором вы определили их в text.xml файле
+ нужно писать так
+ 
+ <suite name="ABC" parallel="none" preserve-order="true">
+ 
+ 
+=========================================================================================================================
 
 
 
-regres5.xml 
-(включает 
-тест  3  из списка (RegresTest03)
-тест  5  из списка (RegresTest05)
-)
-
-
-regres6.xml 
-(включает 
-тест  5  из списка (RegresTest05)
-тест  6  из списка (RegresTest06)
-)
-
-regres7.xml 
-(включает 
-тест  3  из списка (RegresTest03)
-тест  5  из списка (RegresTest05)
-тест  6  из списка (RegresTest06)
-тест  7  из списка (RegresTest07)
-)
-
-
-====================
-Как итог, набор всех тестов:
-
-2? 
-4?
-regres7.xml 

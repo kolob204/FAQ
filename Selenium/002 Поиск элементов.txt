@@ -11,7 +11,7 @@ driver.findElement(By.linkText("qqq"));
 driver.FindElement(By.XPath("//span[contains(@class,'title') and contains(text(),'Administration')]"));
 driver.FindElement(By.XPath("//span[contains(text(),'Administration')]"));
 
-По не полному совпадению  (partial match text)
+По не полному совпадению  (partial match text) (partial text)
 
  wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("moduleTab_Calendar")));
  partial match: //a[contains(.,'next')]
@@ -23,6 +23,8 @@ driver.FindElement(By.XPath("//span[contains(text(),'Administration')]"));
 //a[contains(@href,'record')][first()]
 //*[contains(@id,'conc_conclusion_1')]/a                 ЗДЕСЬ id="show_link_lcfl_loan_creditfactoringleasing_c_conc_conclusion_1"     
  *********
+ или поиск по начальному значению аттрибута
+ $(By.xpath("//*[starts-with(@title,'+7')]"))
  
  
  <td><input type="checkbox" /><label>A. Choice 1</label></td>
@@ -160,4 +162,15 @@ Assert.assertEquals(driver.getTitle(), "Календарь » SuiteCRM");
 //заголовка H2
 Assert.assertEquals(h2_Element.getText(),"Календарь"); 
  
+ ============================================
+ Click on Element with CSS Style ^:
+ opacity=0
  
+ Because error
+ Element should be visible 
+ 
+ 
+ $(By.xpath("//*[@aria-label='Вложения:Новый файл']")).waitUntil(Condition.exist, 60000)
+				.parent()
+				.click();
+============================================				
